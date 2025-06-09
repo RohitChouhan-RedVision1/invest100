@@ -169,9 +169,10 @@ export function ContactUs({ sitedata }) {
             <h2 className="text-2xl font-semibold text-[#0E314D] mb-4">
               Thank You!
             </h2>
-            <p className="text-gray-700 mb-6">
-              Thank you for connecting with us. We'll reach out to you shortly.
-            </p>
+          <p className="text-gray-700 mb-6">
+  Thank you for connecting with us. We&rsquo;ll reach out to you shortly.
+</p>
+
             <Button
               onClick={closeModal}
               className="bg-[#C59F4A] text-white px-6 py-2 rounded-lg hover:bg-[#a07d3e]"
