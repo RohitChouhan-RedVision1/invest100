@@ -45,7 +45,7 @@
 }
 
 .aboutSectionArea .aboutHeading .peraBox {
-    background: #EDF2F7;
+    background: color-mix(in srgb, var(--rv-primary) 10%, transparent);;
     position: relative;
     z-index: 1;
     border-radius: 8px;

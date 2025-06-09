@@ -56,12 +56,6 @@ export function Testimonials({ testimonials }) {
     return (
         <div
             className={`${styles.testimonialSectionArea} main_section py-10 px-4`}
-            style={{
-                backgroundImage: 'url(/all-images/bg/bg1.png)',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-            }}
         >
             <div className="max-w-screen-xl mx-auto">
                 <div className="row">

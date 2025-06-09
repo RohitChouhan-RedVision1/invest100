@@ -8,7 +8,6 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const OurServices = ({ services }) => {
-    console.log(services)
     return (
         <div className={`${styles.serviceSectionArea} main_section`} style={{ backgroundImage: 'url(/all-images/bg/bg2.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
             <div className="max-w-screen-xl mx-auto">

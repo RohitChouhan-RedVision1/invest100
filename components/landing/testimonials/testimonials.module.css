@@ -1,8 +1,24 @@
 .testimonialSectionArea {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--rv-secondary);
 }
+
+.testimonialSectionArea::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/dotted-texture-2.png'); /* update with your actual path */
+  background-repeat: repeat; /* or 'no-repeat' and background-size: cover; based on the texture */
+  opacity: 0.15; /* adjust visibility */
+  z-index: 0;
+  pointer-events: none; /* allow clicks to pass through */
+}
+
 
 .testimonialSectionArea .heading1 h5 {
     border-radius: 8px;

@@ -48,7 +48,7 @@
 }
 
 .projectSection .projectSingleBoxarea .slickDots li.slickActive button {
-  background: var(--ztc-bg-bg-3);
+  background:  color-mix(in srgb, var(--rv-secondary) 10%, transparent);
   color: var(--ztc-text-text-1);
   transition: all 0.4s;
 }
@@ -59,7 +59,7 @@
   text-align: center;
   line-height: 60px;
   border-radius: 8px;
-  background: rgba(110, 148, 25, 0.1);
+  background: color-mix(in srgb, var(--rv-primary) 10%, transparent);;
   color: var(--ztc-text-text-4);
   transition: all 0.4s;
   border: none;
@@ -86,8 +86,8 @@
 }
 
 .projectSection .projectSingleBoxarea .slickDots li button:hover {
-  background: var(--ztc-bg-bg-3);
-  color: var(--ztc-text-text-1);
+  background:  color-mix(in srgb, var(--rv-secondary) 10%, transparent);;
+  color: var(--rv-primary);
   transition: all 0.4s;
 }
 

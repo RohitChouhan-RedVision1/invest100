@@ -50,7 +50,7 @@ export default function AboutSection({siteData}) {
                                     />
                                 </div>
                                 <div className={styles.text}>
-                                    <Link href="service.html">Financial Solution</Link>
+                                    <Link href="/">Financial Solution</Link>
                                     <div class="space10"></div>
                                     <p>Growth. Dedication. Trust - Your financial well-being is our shared responsibility!
                                     </p>

@@ -25,7 +25,7 @@
 
 .heroSectionArea .headingArea h5 {
   border-radius: 6px;
-  background: rgba(6, 29, 25, 0.1);
+  background: color-mix(in srgb, var(--rv-primary) 10%, transparent);
   padding: 10px 14px;
   display: inline-block;
   transition: all 0.4s;

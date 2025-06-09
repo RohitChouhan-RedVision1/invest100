@@ -458,7 +458,7 @@ img {
 
 .heading1 h5 {
   border-radius: 8px;
-  background: rgba(110, 148, 25, 0.1);
+  background: color-mix(in srgb, var(--rv-primary) 10%, transparent);;
   display: inline-block;
   color: var(--ztc-text-text-4);
   font-family: var(--ztc-family-font1);
