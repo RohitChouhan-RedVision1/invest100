@@ -80,12 +80,12 @@ export function Testimonials({ testimonials }) {
                                                 <img src="/icons/quito1.svg" alt="" />
                                             </div>
                                         </div>
-                                        <div className="space16"></div>
+                                        <div className="space32"></div>
                                         <div>
                                             <div className="line-clamp-2" dangerouslySetInnerHTML={createMarkup(testimonial.content)}></div>
                                             <button
                                                 onClick={() => setSelectedTestimonial(testimonial)}
-                                                className="text-sm text-blue-500 underline mt-1"
+                                                className="text-[16px] text-blue-500  mt-1"
                                             >
                                                 Read More
                                             </button>
