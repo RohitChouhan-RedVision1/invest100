@@ -125,7 +125,7 @@ const Navbar = ({ siteData, services }) => {
                     </div>
                     <span className={`${styles.btnWrap} text-end`}>
                       <span className={styles.icons}>
-                        <img src="/icons/phone1.svg" alt="Phone" />
+                        <img src="/icons/phone.svg" alt="Phone" />
                       </span>
                       <span className={styles.text}>
                         <span>Hotline 24/7</span>

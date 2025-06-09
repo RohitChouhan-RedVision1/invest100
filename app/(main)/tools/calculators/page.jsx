@@ -17,7 +17,14 @@ export default function Page() {
   const [isMonthlySip, setIsMonthlySip] = useState(true);
   return (
     <div className="">
-      <div className="max-w-screen-xl mx-auto pt-32 pb-10">
+      <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
+        <div className="max-w-screen-xl mx-auto">
+          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
+            Financial Calculators
+          </h1>
+        </div>
+      </div>
+      <div className="max-w-screen-xl mx-auto pt-10 pb-10">
       <section className="">
         <div className=" mx-auto">
         <div className="flex justify-center mb-14">
