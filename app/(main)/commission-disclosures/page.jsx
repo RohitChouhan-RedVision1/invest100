@@ -49,29 +49,14 @@ const CommissionDisclosures = () => {
 
     return (
         <section>
-            <div className="page-header">
-                    <div className="container mx-auto">
-                      <div className="items-center">
-                        <div className="page-header-box">
-                          <h1 className="text-anime-style-2" data-cursor="-opaque">
-                            Commission disclosure
-                          </h1>
-                          <Breadcrumb>
-                            <BreadcrumbList className="text-white">
-                              <BreadcrumbItem>
-                                <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                              </BreadcrumbItem>
-                              <BreadcrumbSeparator />
-                              <BreadcrumbItem>
-                                <BreadcrumbPage>Commission disclosure</BreadcrumbPage>
-                              </BreadcrumbItem>
-                            </BreadcrumbList>
-                          </Breadcrumb>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            <div className="container mx-auto main_section">
+            <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
+        <div className="max-w-screen-xl mx-auto">
+          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
+            Commission Disclosure
+          </h1>
+        </div>
+      </div>
+            <div className="max-w-screen-xl mx-auto main_section">
                 <div className=" ">
                     {/* Static Header Text */}
                     <h1 className="text-center text-lg font-bold mb-5">
@@ -94,7 +79,7 @@ const CommissionDisclosures = () => {
                             </thead>
                             <tbody>
                                 {commissionData.map((item, index) => (
-                                    <tr key={index} className={index % 2 === 0 ? "bg-[var(--rv-secondary)]" : ""}>
+                                    <tr key={index} className={index % 2 === 0 ? "bg-[var(--rv-secondary)] text-white" : ""}>
                                         <td className="border border-[var(--rv-primary)] px-4 py-2">{item.type}</td>
                                         <td className="border border-[var(--rv-primary)] px-4 py-2">{item.year1}</td>
                                         <td className="border border-[var(--rv-primary)] px-4 py-2">{item.year2}</td>

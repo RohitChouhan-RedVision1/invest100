@@ -20,7 +20,7 @@ const Footer = ({siteData,services,SocialMedia}) => {
     return (
         <div className={styles.footer1SectionArea}>
             <div className="max-w-screen-xl mx-auto main_section1">
-                <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
                     <div className="col-lg-3 col-md-6 ">
                         <div className={styles.footerLogo}>
                             <Link href={"/"}><img src="/logo/logo1.png" alt="" /></Link>
@@ -58,7 +58,7 @@ const Footer = ({siteData,services,SocialMedia}) => {
                             </ul>
                         </div>
                     </div>
-                      <div className="col-lg-3 col-md-6">
+                      {/* <div className="col-lg-3 col-md-6">
             <div className="space30 d-md-none d-block"></div>
             <div className={`${styles.footerWidget} ${styles.firstPadding}`}>
               <h3>Services</h3>
@@ -71,7 +71,7 @@ const Footer = ({siteData,services,SocialMedia}) => {
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
                     <div className="col-lg-3 col-md-6">
                         <div className="space30 d-md-none d-block"></div>
                         <div className={styles.footerWidget}>

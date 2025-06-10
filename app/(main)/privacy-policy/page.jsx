@@ -50,29 +50,14 @@ export default function PrivacyPolicy() {
 
     return (
         <div>
-            <div className="page-header">
-                                <div className="container mx-auto">
-                                  <div className="items-center">
-                                    <div className="page-header-box">
-                                      <h1 className="text-anime-style-2" data-cursor="-opaque">
-                                        Privacy policy
-                                      </h1>
-                                      <Breadcrumb>
-                                        <BreadcrumbList className="text-white">
-                                          <BreadcrumbItem>
-                                            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                                          </BreadcrumbItem>
-                                          <BreadcrumbSeparator />
-                                          <BreadcrumbItem>
-                                            <BreadcrumbPage>Privacy policy</BreadcrumbPage>
-                                          </BreadcrumbItem>
-                                        </BreadcrumbList>
-                                      </Breadcrumb>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                                <div className="text-gray-700 mx-auto container main_section">
+          <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
+        <div className="max-w-screen-xl mx-auto">
+          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
+            Privacy Policy
+          </h1>
+        </div>
+      </div>
+                                <div className="text-gray-700 max-w-screen-xl mx-auto main_section">
             <p dangerouslySetInnerHTML={createMarkup()} />
         </div>
         </div>
