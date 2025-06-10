@@ -312,7 +312,7 @@ useEffect(() => {
 
   console.log(selectedAcms,schemesData)
   return (
-    <div className="pt-32 pb-10">
+    <div className="main_section">
   
       <div className="max-w-screen-xl mx-auto ">
       <Toaster />

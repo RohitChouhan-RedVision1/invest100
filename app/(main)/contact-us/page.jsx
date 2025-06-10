@@ -13,9 +13,9 @@ export default async function ContactUs() {
           </h1>
         </div>
       </div>
-    <div className="w-full max-w-7xl mx-auto px-4 py-10">
+    <div className="w-full max-w-7xl mx-auto px-4 main_section">
       {/* Contact Info Cards */}
-      <div className="flex flex-col  gap-4 overflow-hidden rounded-lg mb-8">
+      <div className="flex flex-col  gap-4 overflow-hidden rounded-lg ">
         {/* Call Us */}
         <div className="flex flex-col md:flex-row gap-4 w-full justify-center items-center text-center">
           <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 flex flex-col items-center justify-center min-h-[210px]">
@@ -40,7 +40,7 @@ export default async function ContactUs() {
       {/* Reach Us */}
 
       {/* Map and Contact Form */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 main_section1">
         {/* Map */}
         <div className="w-full h-[500px] relative border border-gray-200 rounded">
           <Link href={sitedata.mapurl}>

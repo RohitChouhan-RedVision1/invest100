@@ -36,7 +36,7 @@ const SubscribCard = ({ amclogos }) => {
               key={index}
               className="pl-1 md:basis-1/2 lg:basis-1/5"
             >
-              <div className="px-5 py-10">
+              <div className="px-5 main_section">
                 <a
                   href={logo.logourl}
                   target="_blank"

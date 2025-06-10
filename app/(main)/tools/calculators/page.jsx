@@ -24,7 +24,7 @@ export default function Page() {
           </h1>
         </div>
       </div>
-      <div className="max-w-screen-xl mx-auto pt-10 pb-10">
+      <div className="max-w-screen-xl mx-auto main_section">
       <section className="">
         <div className=" mx-auto">
         <div className="flex justify-center mb-14">

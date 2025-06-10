@@ -61,7 +61,7 @@ export default function Page() {
     }, [totalInvestment, investmentDuration, expectedReturn, inflationRate]);
 
     return (
-       <div className="max-w-screen-xl mx-auto pt-32 pb-10">
+       <div className="max-w-screen-xl mx-auto main_section">
          <div className="">
            <div className="mb-5 flex flex-col md:flex-row gap-5 justify-between">
            <h1 className="text-2xl md:text-3xl font-bold uppercase">

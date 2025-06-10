@@ -30,7 +30,7 @@ import Image from "next/image";
           </h1>
         </div>
       </div>
-          <div className="container mx-auto px-4 lg:px-32 py-10">
+          <div className="container mx-auto px-4 lg:px-32 main_section">
             {/* Heading and Subheading */}
             
             
@@ -101,7 +101,7 @@ import Image from "next/image";
            <div className="space-y-12">
       {TeamsSection.map((member, index) => (
         <div key={index} className="mb-8 flex flex-col items-center md:items-start p-6 rounded-lg">
-          <div className="flex justify-center mx-auto md:pl-8">
+          <div className="md:pl-8">
             <Image src={member.image.url} alt={member.name} width={300} height={300} className="" />
           </div>
           <div className="md:pl-8 mt-6 md:mt-6">

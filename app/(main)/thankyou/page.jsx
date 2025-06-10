@@ -6,7 +6,7 @@ const ThankYou = async () => {
     return (
         <section>
             {/* <div className="bg-[url(/images/innerbanner.png)] bg-center bg-cover bg-no-repeat w-full">
-                <div className="md:px-0 px-5 md:py-20 py-10 max-w-screen-xl mx-auto">
+                <div className="md:px-0 px-5 md:py-20 main_section max-w-screen-xl mx-auto">
                     <h3 className="text-white text-[35px] md:text-[45px] font-bold tracking-wider">Thank You</h3>
                 </div>
             </div> */}

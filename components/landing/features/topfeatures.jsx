@@ -106,7 +106,7 @@ const TopFeatures = () => {
                 <div className={styles.img1}>
                   <img src="/all-images/project/project-img1.png" alt="Tool visual" />
                 </div>
-                <img src="/elements/elements7.svg" alt="" className={`${styles.elements7} aniamtion-key-1`} />
+                <img src="/elements/basic-1-tool.png" alt="" className={`${styles.elements7} aniamtion-key-1 w-[250px]`} />
               </div>
             </div>
           </div>

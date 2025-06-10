@@ -44,7 +44,7 @@ const SinglePostPage = async ({ params }) => {
         return { __html: post?.content }
     }
     return (
-        <div className="flex lg:px-60 md:px-20 px-10 py-10 flex-col">
+        <div className="flex lg:px-60 md:px-20 px-10 main_section flex-col">
             <div className="text-center justify-center items-center">
                 <div className="mb-16">
                     <h1 className="text-5xl font-bold text-gray-800 mb-5">{post.posttitle}</h1>

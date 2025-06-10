@@ -55,7 +55,7 @@ export function Testimonials({ testimonials }) {
 
     return (
         <div
-            className={`${styles.testimonialSectionArea} main_section py-10 px-4`}
+            className={`${styles.testimonialSectionArea} main_section main_section px-4`}
         >
             <div className="max-w-screen-xl mx-auto">
                 <div className="row">

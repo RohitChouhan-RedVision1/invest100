@@ -47,7 +47,7 @@ const renderCustomizedLabel = ({
 // Register ChartJS components
 // ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export default function Calculator() {
+export default function Calculator({service}) {
   
   const [monthlyInvestment, setMonthlyInvestment] = useState(25000);
   const [expectedReturn, setExpectedReturn] = useState(15);
@@ -103,15 +103,19 @@ export default function Calculator() {
     <div className=" ">
       <div className="max-w-screen-xl main_section mx-auto">
      
- <div className="row items-center">
-          <div className="col-lg-6 m-auto">
-            <div className="heading1 text-center space-margin60">
-              <h5>OUR CALCULATOR</h5>
-              <div className="space20"></div>
-              <h2 className="text-anime-style-1">Plan Your Wealth with Our SIP Calculator</h2>
-            </div>
-          </div>
-        </div>
+
+{!service && (
+  <div className="row items-center">
+    <div className="col-lg-6 m-auto">
+      <div className="heading1 text-center space-margin60">
+        <h5>OUR CALCULATOR</h5>
+        <div className="space20"></div>
+        <h2 className="text-anime-style-1">Plan Your Wealth with Our SIP Calculator</h2>
+      </div>
+    </div>
+  </div>
+)}
+
 
         <div className="lg:relative  flex flex-col gap-10">
 

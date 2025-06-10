@@ -58,7 +58,7 @@ export default function Page() {
     };
 
     return (
-        <div className="lg:px-40 px-10 py-10">
+        <div className="lg:px-40 px-10 main_section">
             <div className="mb-5 flex justify-between">
                 <Breadcrumb>
                     <BreadcrumbList>

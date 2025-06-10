@@ -229,7 +229,7 @@ export default function EmiCalculator() {
     };
 
     return (
-        <section className="py-10">
+        <section className="main_section">
             <div className="max-w-screen-xl mx-auto">
                 <SectionHeading title="Power of Systematic Investment Plan (SIP)" description="SIP Calculator" />
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4 mt-10">

@@ -227,7 +227,7 @@ const EditVideo = () => {
   const postId = param.id;
   return (
     <DefaultLayout>
-      <div className="py-10 px-10">
+      <div className="main_section px-10">
         <div className="flex justify-between">
           <h1 className="font-bold text-gray-700 text-2xl mb-7">Edit Video</h1>
           <Link href="/admin/manage-Video/manage">

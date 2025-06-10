@@ -5,7 +5,7 @@ import Link from "next/link";
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
 
-export default function Signin() {
+export default function Signin({siteData}) {
   const router = useRouter();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,8 +16,8 @@ export default function Signin() {
     username: "",
     password: "",
     loginFor: "CLIENT",
-    callbackUrl: `${process.env.NEXT_PUBLIC_CALLBACK_URL}/login`,
-    siteUrl: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+    callbackUrl: siteData.callbackurl,
+    siteUrl: siteData.siteurl,
   });
 
   // Reset email & password when role changes
@@ -29,6 +29,8 @@ export default function Signin() {
       loginFor: selectedRole === "ADMIN" ? "ARN" : selectedRole,
     }));
   }, [selectedRole]);
+
+  console.log(provider)
 
   const handleSubmit = async (event) => {
     event.preventDefault();

@@ -30,7 +30,14 @@ const UsefulLinksPage = () => {
     <div className="">
 
     <div className="">
-      <div className="max-w-screen-xl mx-auto pt-32 pb-10">
+      <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
+        <div className="max-w-screen-xl mx-auto">
+          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
+            Useful Links
+          </h1>
+        </div>
+      </div>
+      <div className="max-w-screen-xl mx-auto main_section">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-[60px]">
           {usefulLink.map((link, index) => (
             <Link href={link.link} key={index} legacyBehavior>

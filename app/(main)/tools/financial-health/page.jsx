@@ -323,7 +323,7 @@ Here are the answers you provided:
     return { message: "Excellent", color: "text-green-500" };
   };
   return (
-    <div className="pt-32 pb-10">
+    <div className="main_section">
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
       <Toaster />
       {isModalOpen && (

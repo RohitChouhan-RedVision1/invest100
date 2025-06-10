@@ -67,7 +67,7 @@ const FinancialTools = () => {
 
     ];
     return (
-        <div className='my-10 mt-20 md:px-1 px-4 py-10 bg-[#006c6e1c]'>
+        <div className='my-10 mt-20 md:px-1 px-4 main_section bg-[#006c6e1c]'>
             <div className="relative after:content-[''] after:absolute after:top-0 after:left-0 after:w-xl after:h-xl after:bg-black after:rotate-45">
                 <div className="max-w-screen-xl mx-auto">
                     <SectionHeading title="Financial Tools" description="Our Financial Tools" />

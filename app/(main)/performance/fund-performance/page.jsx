@@ -118,7 +118,7 @@ export default function MarketUpdate() {
 
   console.log(categories)
   return (
-    <div className="pt-32 pb-10">
+    <div className="main_section">
 
       <div className="max-w-screen-xl mx-auto ">
       {pageloading ? (

@@ -65,7 +65,7 @@ export default function Page() {
     };
 
     return (
-        <div className="max-w-screen-xl mx-auto pt-32 pb-10">
+        <div className="max-w-screen-xl mx-auto main_section">
             <div className=" ">
             <div className="mb-5 flex flex-col md:flex-row gap-5 justify-between">
                             <Breadcrumb>
