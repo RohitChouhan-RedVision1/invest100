@@ -1,0 +1,66 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+.breadcrumbsTitle {
+    // background-color: var(--rv-primary);
+    background-image: url('/images/bg/hero-bg.webp');
+    padding: 180px 0 50px;
+    position: relative;
+    &::after {
+        content: '';
+        background-image: url('/images/bg/inner-baaner.webp');
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        position: absolute;
+        background-size: contain;
+        background-position: right top;
+        background-repeat: no-repeat;
+        z-index: 0;
+    }
+    .miniTitleh1 {
+        font-size: 24px;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+    }
+    .breadcrumbList {
+        display: flex;
+        gap: 30px;
+        position: relative;
+        z-index: 1;
+        @include mediascreen(767px) {
+            flex-wrap: wrap;
+            gap: 10px 30px;
+        }
+        li {
+            color: var(--rv-black);
+            position: relative;
+            font-weight: 400;
+            &:first-child {
+                &::before {
+                    content: unset;
+                }
+            }
+            &::before {
+                content: '';
+                width: 2px;
+                position: absolute;
+                left: -15px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: .5;
+                background-color: var(--rv-black);
+                height: 70%;
+            }
+            a {
+                color: var(--rv-black);
+                font-weight: 600;
+            }
+        }
+    }
+}

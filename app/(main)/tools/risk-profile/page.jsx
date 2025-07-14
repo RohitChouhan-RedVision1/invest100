@@ -55,8 +55,7 @@ const RiskProfile = () => {
 
     const fetchQuestions = async () => {
         try {
-            const response = await axios.get(`/api/risk-questions`);
-            console.log(response)
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_DATA_API}/api/open-apis/risk-questions?apikey=${process.env.NEXT_PUBLIC_API_KEY}`);
             if (response.status == 200) {
                 setQuestions(response.data)
             }
@@ -355,7 +354,7 @@ Here are the answers you provided:
                     </div>
                     <Button
                         onClick={() => handleNextClick(questions[currentQuestionIndex]?.question)}
-                        className="text-white border px-4 py-2 rounded-lg hover:bg-[var(--rv-bg-primary)] hover:text-white w-1/3 "
+                        className="text-black border px-4 py-2 rounded-lg hover:bg-[var(--rv-bg-primary)] hover:text-white w-1/3 "
                     >
                         Next
                     </Button>

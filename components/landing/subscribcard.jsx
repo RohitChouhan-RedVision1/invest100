@@ -9,7 +9,8 @@ import Image from "next/image";
 
 const SubscribCard = ({ amclogos }) => {
   return (
-    <div className="max-w-screen-xl main_section mx-auto ">
+    <div className="section">
+    <div className="container">
       <div class="row">
         <div class="col-lg-5 m-auto">
           <div class="heading1 text-center space-margin60">
@@ -55,6 +56,7 @@ const SubscribCard = ({ amclogos }) => {
           ))}
         </CarouselContent>
       </Carousel>
+    </div>
     </div>
   );
 };

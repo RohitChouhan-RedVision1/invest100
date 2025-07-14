@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import axios from "axios";
+import { servicesdata, toolsdata } from "@/data/commanData";
+
+
 import styles from "./header.module.css";
 import {
   FaAngleRight,
@@ -12,8 +15,9 @@ import {
   FaXmarksLines,
 } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
+ 
 
-const Navbar = ({ siteData, services }) => {
+const Navbar = ({ siteData }) => {
   const path = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -52,7 +56,7 @@ const Navbar = ({ siteData, services }) => {
               <div className="col-span-1">
                 <div className={styles.logo}>
                   <Link href="/">
-                    <img src="/logo/logo1.png" alt="Logo" />
+                    <img src="/images/logo.webp" alt="Logo" />
                   </Link>
                 </div>
               </div>
@@ -71,10 +75,10 @@ const Navbar = ({ siteData, services }) => {
                           />
                         </Link>
                         <ul className={styles.subMenu}>
-                          {services.map((service) => (
-                            <li key={service.id}>
-                              <Link href={`/service/${service.link}`}>
-                                {service.name}
+                          {servicesdata.map((service, index) => (
+                            <li key={index}>
+                              <Link href={`/services/${service.slugUrl}`}>
+                                {service.title}
                               </Link>
                             </li>
                           ))}
@@ -88,20 +92,15 @@ const Navbar = ({ siteData, services }) => {
                           />
                         </Link>
                         <ul className={styles.subMenu}>
-                          <li>
-                            <Link href="/tools/calculators">
-                              Financial Calculator
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/tools/financial-health">Financial Health</Link>
-                          </li>
-                          <li>
-                            <Link href="/tools/pay-premium-online">Pay Premium Online</Link>
-                          </li>
-                          <li>
-                            <Link href="/tools/useful-links">Useful Links</Link>
-                          </li>
+                          
+                          {toolsdata.map((tools, index) => (
+                            <li key={index}>
+                              <Link href={`${tools.link}`}>
+                                {tools.name}
+                              </Link>
+                            </li>
+                          ))}
+                           
                         </ul>
                       </li>
                       <li>
@@ -125,7 +124,7 @@ const Navbar = ({ siteData, services }) => {
                     </div>
                     <span className={`${styles.btnWrap} text-end`}>
                       <span className={styles.icons}>
-                        <img src="/icons/phone.svg" alt="Phone" />
+                        <img src="/images/icons/phone.svg" alt="Phone" />
                       </span>
                       <span className={styles.text}>
                         <span>Hotline 24/7</span>
@@ -170,13 +169,13 @@ const Navbar = ({ siteData, services }) => {
           <div>
             <p className="font-semibold">Services</p>
             <ul className="pl-4 space-y-2">
-              {services.map((service) => (
-                <li key={service.id}>
+              {servicesdata.map((service, index) => (
+                <li key={index}>
                   <Link
-                    href={`/service/${service.link}`}
+                    href={`/service/${service.slugUrl}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {service.name}
+                    {service.title}
                   </Link>
                 </li>
               ))}

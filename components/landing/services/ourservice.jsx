@@ -6,11 +6,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { servicesdata } from '@/data/commanData'
+import Image from 'next/image'
+
 
 const OurServices = ({ services }) => {
     return (
-        <div className={`${styles.serviceSectionArea} main_section`} style={{ backgroundImage: 'url(/all-images/bg/bg2.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-            <div className="max-w-screen-xl mx-auto">
+        <div className={`${styles.serviceSectionArea} section`} style={{ backgroundImage: 'url(/images/bg/hero-bg.webp)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+            <div className="container">
                 <div className="row">
                     <div className="col-lg-5">
                         <div className="heading1 space-margin60">
@@ -41,23 +44,35 @@ const OurServices = ({ services }) => {
                             },
                         }}
                     >
-                        {services.map((service, index) => (
+                        {servicesdata.map((service, index) => (
                             <SwiperSlide key={index}>
-                                <div className={styles.serviceBoxarea}>
-                                    <div className={styles.img1}>
-                                        <img src="/all-images/service/service-img1.png" alt="" />
-                                        <div className={styles.arrow}>
-                                            <Link href={`/service/${service?.link}`}><ArrowRight /></Link>
+                                <Link href={`/services/${service?.slugUrl}`}>
+                                    <div className={styles.serviceBoxarea}>
+                                        <div className={styles.img1}>
+                                            <Image
+                                                src={`${service?.imgContent}`}
+                                                alt=""
+                                                  width={300}
+                                                    height={200}
+                                            />
+                                            <div className={styles.arrow}>
+                                                <ArrowRight />
+                                            </div>
+                                        </div>
+                                        <div className={styles.contentArea}>
+                                            <div className={styles.icons}>
+                                                <Image
+                                                    src={`${service?.iconeImg}`}
+                                                    alt=""
+                                                    width={50}
+                                                    height={50}
+                                                />
+                                            </div>
+                                            <div className="space24"></div>
+                                            <h5>{service?.title}</h5>
                                         </div>
                                     </div>
-                                    <div className={styles.contentArea}>
-                                        <div className={styles.icons}>
-                                            <img src="/icons/service1.svg" alt="" />
-                                        </div>
-                                        <div className="space24"></div>
-                                        <Link href={`/service/${service?.link}`}>{service?.name}</Link>
-                                    </div>
-                                </div>
+                                </Link>
                             </SwiperSlide>
                         ))}
                     </Swiper>

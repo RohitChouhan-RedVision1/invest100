@@ -13,15 +13,15 @@ const poppins = Montaga({
 export const dynamic = "force-dynamic";
 export const metadata = {
   title: {
-    default: "Omnicompounding Enterprises Private Limited",
-    template: "%s - Omnicompounding Enterprises Private Limited",
+    default: "Invest100",
+    template: "%s - Invest100",
   },
   description:
-    "Welcome to Omnicompounding Enterprises Private Limited, your trusted financial companion in India. We are in mutual funds distribution services since eighteen years, we understand that your financial journey is more than just numbers; it's a story of dreams, aspirations, and the legacy you want to leave behind. At Omnicompounding Enterprises Private Limited, we are driven by the belief that everyone deserves a secure and prosperous future.",
+    "Welcome to Invest100, your trusted financial companion in India. We are in mutual funds distribution services since eighteen years, we understand that your financial journey is more than just numbers; it's a story of dreams, aspirations, and the legacy you want to leave behind. At Invest100, we are driven by the belief that everyone deserves a secure and prosperous future.",
   twitter: {
     card: "summary_large_image",
   },
-  author: "Omnicompounding Enterprises Private Limited",
+  author: "Invest100",
 };
 
 export default function RootLayout({ children }) {

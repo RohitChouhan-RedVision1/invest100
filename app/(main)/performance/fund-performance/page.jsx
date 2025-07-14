@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Loading from "./loading";
 import PageLoading from "./loadingpage";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import RvBreadcrumbs from "@/components/landing/page-breadcrumbs/rvbreadcrumbs";
 
 export default function MarketUpdate() {
   const [categories, setCategories] = useState([]);
@@ -118,114 +118,119 @@ export default function MarketUpdate() {
 
   console.log(categories)
   return (
-    <div className="main_section">
-
-      <div className="max-w-screen-xl mx-auto ">
-      {pageloading ? (
-        <PageLoading />
-      ) : (
-        <>
-          <div className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-5 mb-5">
-            {categories?.map((item, index) => (
-              <div
-                key={index}
-                className={`px-3 py-3 bg-white border ${
-                  selectedCategory === item
-                    ? "border-[var(--rv-secondary)]"
-                    : "border-gray-300"
-                } rounded shadow cursor-pointer flex flex-col items-center`}
-                onClick={() => handleCategorySelect(item)}
-              >
-                <Image
-                  src={`/${item}.svg`}
-                  width={70}
-                  height={70}
-                  className="mb-5 text-teal-500 "
-                  alt=""
-                />
-                <h1 className="font-bold text-gray-700 text-2xl text-center uppercase">
-                  {item}
-                </h1>
-              </div>
-            ))}
-          </div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-1 grid-cols-1 gap-5">
-            <div className="col-span-1">
-              {/* Search bar */}
-              <input
-                type="text"
-                placeholder="Search Scheme"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                className="w-full px-3 py-2 border rounded mb-1"
-              />
-
-              {/* Display filtered schemes */}
-              {filteredSchemes?.map((scheme, index) => (
+    <div className="">
+ <RvBreadcrumbs
+              maintitle='Fund Performance'
+              lastTitle2='Performance'
+              lastTitle='Tools'
+              lastTitleLink='/tools/calculators'
+              lastTitle2Link='/tools/calculators?tab=performance'
+            />
+            <div className="section">
+      <div className="container">
+        {pageloading ? (
+          <PageLoading />
+        ) : (
+          <>
+            <div className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-5 mb-5">
+              {categories?.map((item, index) => (
                 <div
                   key={index}
-                  className={`px-3 py-3 ${
-                    selectedScheme === scheme ? "bg-[var(--rv-secondary)]" : "bg-white"
-                  } border border-gray-200 rounded shadow cursor-pointer my-2`}
-                  onClick={() => handleSchemeSelect(scheme)}
+                  className={`px-3 py-3 bg-white border ${selectedCategory === item
+                      ? "border-[var(--rv-secondary)]"
+                      : "border-gray-300"
+                    } rounded shadow cursor-pointer flex flex-col items-center`}
+                  onClick={() => handleCategorySelect(item)}
                 >
-                  <h1
-                    className={`font-bold ${
-                      selectedScheme === scheme ? "text-white" : "text-gray-800"
-                    } text-sm text-center`}
-                  >
-                    {scheme}
+                  <Image
+                    src={`/images/icons/${item}.svg`}
+                    width={70}
+                    height={70}
+                    className="mb-5 text-teal-500 "
+                    alt=""
+                  />
+                  <h1 className="font-bold text-gray-700 text-2xl text-center uppercase">
+                    {item}
                   </h1>
                 </div>
               ))}
             </div>
-            <div className="col-span-3">
-  {loading ? (
-    <Loading items={performanceData.length} />
-  ) : (
-    <div className="overflow-x-auto">
-      <table className="min-w-full bg-white border border-gray-300 rounded text-sm">
-        <thead>
-          <tr className="bg-gray-100 text-gray-800 whitespace-nowrap">
-            <th className="py-2 px-4 border-b text-left">Fund Name</th>
-            <th className="py-2 px-4 border-b text-center">1 Week</th>
-            <th className="py-2 px-4 border-b text-center">1 Month</th>
-            <th className="py-2 px-4 border-b text-center">3 Month</th>
-            <th className="py-2 px-4 border-b text-center">6 Month</th>
-            <th className="py-2 px-4 border-b text-center">9 Month</th>
-            <th className="py-2 px-4 border-b text-center">1 Year</th>
-            <th className="py-2 px-4 border-b text-center">3 Year</th>
-            <th className="py-2 px-4 border-b text-center">5 Year</th>
-          </tr>
-        </thead>
-        <tbody>
-          {performanceData?.map((performance, index) => (
-            <tr
-              key={index}
-              className="hover:bg-gray-100 cursor-pointer whitespace-nowrap"
-              onClick={() => handlePerformanceClick(performance)}
-            >
-              <td className="py-2 px-4 border-b">{performance.funddes}</td>
-              <td className="py-2 px-4 border-b text-center">{performance.oneweek}</td>
-              <td className="py-2 px-4 border-b text-center">{performance.onemonth || "N/A"}</td>
-              <td className="py-2 px-4 border-b text-center">{performance.three_month || "N/A"}</td>
-              <td className="py-2 px-4 border-b text-center">{performance.six_month || "N/A"}</td>
-              <td className="py-2 px-4 border-b text-center">{performance.nine_month || "N/A"}</td>
-              <td className="py-2 px-4 border-b text-center">{performance.one_year || "N/A"}</td>
-              <td className="py-2 px-4 border-b text-center">{performance.three_year || "N/A"}</td>
-              <td className="py-2 px-4 border-b text-center">{performance.five_year || "N/A"}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )}
-</div>
+            <div className="grid lg:grid-cols-4 md:grid-cols-1 grid-cols-1 gap-5">
+              <div className="col-span-1">
+                {/* Search bar */}
+                <input
+                  type="text"
+                  placeholder="Search Scheme"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  className="w-full px-3 py-2 border rounded mb-1"
+                />
 
-          </div>
-        </>
-      )}
-    </div>
+                {/* Display filtered schemes */}
+                {filteredSchemes?.map((scheme, index) => (
+                  <div
+                    key={index}
+                    className={`px-3 py-3 ${selectedScheme === scheme ? "bg-[var(--rv-secondary)]" : "bg-white"
+                      } border border-gray-200 rounded shadow cursor-pointer my-2`}
+                    onClick={() => handleSchemeSelect(scheme)}
+                  >
+                    <h1
+                      className={`font-bold ${selectedScheme === scheme ? "text-white" : "text-gray-800"
+                        } text-sm text-center`}
+                    >
+                      {scheme}
+                    </h1>
+                  </div>
+                ))}
+              </div>
+              <div className="col-span-3">
+                {loading ? (
+                  <Loading items={performanceData.length} />
+                ) : (
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full bg-white border border-gray-300 rounded text-sm">
+                      <thead>
+                        <tr className="bg-gray-100 text-gray-800 whitespace-nowrap">
+                          <th className="py-2 px-4 border-b text-left">Fund Name</th>
+                          <th className="py-2 px-4 border-b text-center">1 Week</th>
+                          <th className="py-2 px-4 border-b text-center">1 Month</th>
+                          <th className="py-2 px-4 border-b text-center">3 Month</th>
+                          <th className="py-2 px-4 border-b text-center">6 Month</th>
+                          <th className="py-2 px-4 border-b text-center">9 Month</th>
+                          <th className="py-2 px-4 border-b text-center">1 Year</th>
+                          <th className="py-2 px-4 border-b text-center">3 Year</th>
+                          <th className="py-2 px-4 border-b text-center">5 Year</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {performanceData?.map((performance, index) => (
+                          <tr
+                            key={index}
+                            className="hover:bg-gray-100 cursor-pointer whitespace-nowrap"
+                            onClick={() => handlePerformanceClick(performance)}
+                          >
+                            <td className="py-2 px-4 border-b">{performance.funddes}</td>
+                            <td className="py-2 px-4 border-b text-center">{performance.oneweek}</td>
+                            <td className="py-2 px-4 border-b text-center">{performance.onemonth || "N/A"}</td>
+                            <td className="py-2 px-4 border-b text-center">{performance.three_month || "N/A"}</td>
+                            <td className="py-2 px-4 border-b text-center">{performance.six_month || "N/A"}</td>
+                            <td className="py-2 px-4 border-b text-center">{performance.nine_month || "N/A"}</td>
+                            <td className="py-2 px-4 border-b text-center">{performance.one_year || "N/A"}</td>
+                            <td className="py-2 px-4 border-b text-center">{performance.three_year || "N/A"}</td>
+                            <td className="py-2 px-4 border-b text-center">{performance.five_year || "N/A"}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+
+            </div>
+          </>
+        )}
+      </div>
+      </div>
     </div>
   );
 }

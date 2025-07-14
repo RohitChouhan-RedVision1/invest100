@@ -6,15 +6,15 @@ import Link from 'next/link';
 export default function AboutSection({siteData}) {
     
     return (
-        <div className={`${styles.aboutSectionArea} main_section`}>
-            <div class="max-w-screen-xl mx-auto">
+        <div className={`${styles.aboutSectionArea} section`}>
+            <div class="container">
                 <div class="grid   md:grid-cols-12 items-center">
                     <div class="col-span-1"></div>
                     <div class="col-span-6">
                         <div className={styles.aboutImagesArea}>
                             <div className={styles.img1}>
                                 <Image
-                                    src="/all-images/about/about-img1.png"
+                                    src="/images/about-img.webp"
                                     alt="About Image 1"
                                     width={50}
                                     height={400}
@@ -22,7 +22,7 @@ export default function AboutSection({siteData}) {
                                 />
                             </div>
                             <Image
-                                src="/elements/elements6.svg"
+                                src="/images/elements6.svg"
                                 alt="About Image 1"
                                 width={350}
                                 height={400}
@@ -40,9 +40,9 @@ export default function AboutSection({siteData}) {
                             <p>Welcome to {siteData.websiteName}, your trusted financial companion in India. We understand that your financial journey is more than just numbers; it&apos;s a story of dreams, aspirations, and the legacy you want to leave behind. At {siteData.websiteName}, we are driven by the belief that everyone deserves a secure and prosperous future.</p>
                             <div class="space32"></div>
                             <div className={styles.peraBox} >
-                                <div className={`${styles.icons} p-4`}>
+                                <div className={`${styles.icons} p-2`}>
                                     <Image
-                                        src="/icons/about-icon.svg"
+                                        src="/images/icons/about-icon.svg"
                                         alt="About Image 1"
                                         width={400}
                                         height={400}

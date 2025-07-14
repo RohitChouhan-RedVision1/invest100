@@ -35,7 +35,7 @@
 .aboutSectionArea .aboutImagesArea .elements6 {
     position: absolute;
     bottom: 30px;
-    left: -165px;
+    left: -90px;
 }
 
 @media (max-width: 767px) {
@@ -45,7 +45,8 @@
 }
 
 .aboutSectionArea .aboutHeading .peraBox {
-    background: color-mix(in srgb, var(--rv-primary) 10%, transparent);;
+    background: color-mix(in srgb, var(--rv-primary) 10%, transparent);
+    ;
     position: relative;
     z-index: 1;
     border-radius: 8px;

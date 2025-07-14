@@ -47,8 +47,8 @@ const renderCustomizedLabel = ({
 // Register ChartJS components
 // ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export default function Calculator({service}) {
-  
+export default function Calculator({ service }) {
+
   const [monthlyInvestment, setMonthlyInvestment] = useState(25000);
   const [expectedReturn, setExpectedReturn] = useState(15);
   const [investmentDuration, setInvestmentDuration] = useState(10);
@@ -89,32 +89,32 @@ export default function Calculator({service}) {
 
   const data = result
     ? [
-        { name: "Invested Amount", value: result.totalInvestment },
-        {
-          name: "Estimated Return",
-          value: result.futureValue - result.totalInvestment,
-        },
-        { name: "Final Amount", value: result.futureValue },
-      ]
+      { name: "Invested Amount", value: result.totalInvestment },
+      {
+        name: "Estimated Return",
+        value: result.futureValue - result.totalInvestment,
+      },
+      { name: "Final Amount", value: result.futureValue },
+    ]
     : [];
 
   const COLORS = ["var(--rv-primary)", "black", "var(--rv-secondary)"]; // Blue & Orange
   return (
-    <div className=" ">
-      <div className="max-w-screen-xl main_section mx-auto">
-     
+    <div className="section">
+      <div className="container">
 
-{!service && (
-  <div className="row items-center">
-    <div className="col-lg-6 m-auto">
-      <div className="heading1 text-center space-margin60">
-        <h5>OUR CALCULATOR</h5>
-        <div className="space20"></div>
-        <h2 className="text-anime-style-1">Plan Your Wealth with Our SIP Calculator</h2>
-      </div>
-    </div>
-  </div>
-)}
+
+        {!service && (
+          <div className="row items-center">
+            <div className="col-lg-6 m-auto">
+              <div className="heading1 text-center space-margin60">
+                <h5>OUR CALCULATOR</h5>
+                <div className="space20"></div>
+                <h2 className="text-anime-style-1">Plan Your Wealth with Our SIP Calculator</h2>
+              </div>
+            </div>
+          </div>
+        )}
 
 
         <div className="lg:relative  flex flex-col gap-10">
@@ -144,13 +144,24 @@ export default function Calculator({service}) {
                       </span>
                     </div>
                   </div>
-                  <Slider
+                  {/* <Slider
                     value={[monthlyInvestment]}
                     onValueChange={(value) => setMonthlyInvestment(value[0])}
                     max={100000}
                     step={1000}
                     className="mt-2 text-[--rv-primary]"
-                  />
+                  /> */}
+                  <input
+                            type="range"
+                            max="100000"
+                            step="1000"
+                            value={isNaN(monthlyInvestment) ? 0 : monthlyInvestment}
+                            onChange={(e) =>
+                              setMonthlyInvestment(parseFloat(e.target.value))
+                            }
+                            className="customRange w-full"
+                            style={{ "--progress": (((isNaN(monthlyInvestment) ? 0 : monthlyInvestment) - 0) / (100000 - 0)) * 100 + "%", }}
+                          />
                 </div>
               </div>
 
@@ -175,13 +186,30 @@ export default function Calculator({service}) {
                       </span>
                     </div>
                   </div>
-                  <Slider
+                  {/* <Slider
                     value={[expectedReturn]}
                     onValueChange={(value) => setExpectedReturn(value[0])}
                     max={30}
                     step={0.5}
                     className="mt-2"
-                  />
+                  /> */}
+                  <input
+                            type="range"
+                            max="30"
+                            step="1"
+                            value={isNaN(expectedReturn) ? 0 : expectedReturn}
+                            onChange={(e) =>
+                              setExpectedReturn(parseFloat(e.target.value))
+                            }
+                            className="customRange w-full"
+                            style={{
+                              "--progress":
+                                (((isNaN(expectedReturn) ? 0 : expectedReturn) - 0) /
+                                  (30 - 0)) *
+                                100 +
+                                "%",
+                            }}
+                          />
                 </div>
               </div>
 
@@ -206,44 +234,61 @@ export default function Calculator({service}) {
                       </span>
                     </div>
                   </div>
-                  <Slider
+                  <input
+                            type="range"
+                            max="40"
+                            step="1"
+                            value={isNaN(investmentDuration) ? 0 : investmentDuration}
+                            onChange={(e) =>
+                              setInvestmentDuration(parseFloat(e.target.value))
+                            }
+                            className="customRange w-full"
+                            style={{
+                              "--progress":
+                                (((isNaN(investmentDuration) ? 0 : investmentDuration) - 0) /
+                                  (40 - 0)) *
+                                100 +
+                                "%",
+                            }}
+                          />
+                  {/* <Slider
                     value={[investmentDuration]}
                     onValueChange={(value) => setInvestmentDuration(value[0])}
                     max={40}
                     step={1}
                     className="mt-2 "
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
             <Card className="w-full md:w-1/2">
-  <ResponsiveContainer width="100%" height={300}>
-    <PieChart>
-      <Pie
-        data={data}
-        cx="50%"
-        cy="50%"
-        innerRadius={60}
-        outerRadius={100}
-        paddingAngle={5}
-        dataKey="value"
-        labelLine={false}
-        label={renderCustomizedLabel} // 👈 Use custom label
-      >
-        {data.map((entry, index) => (
-          <Cell
-            key={`cell-${index}`}
-            fill={COLORS[index % COLORS.length]}
-          />
-        ))}
-      </Pie>
-      <Tooltip
-        formatter={(value, name) => [`₹${value.toLocaleString("en-IN")}`, name]}
-      />
-      <Legend />
-    </PieChart>
-  </ResponsiveContainer>
-</Card>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={data}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={100}
+                    paddingAngle={5}
+                    dataKey="value"
+                    labelLine={false}
+                    label={renderCustomizedLabel} // 👈 Use custom label
+                  >
+                    {data.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    formatter={(value, name) => [`₹${value.toLocaleString("en-IN")}`, name]}
+                  />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </Card>
           </div>
 
           <div className="flex flex-col md:flex-row gap-5 md:gap-10 pt-5  md:relative ">

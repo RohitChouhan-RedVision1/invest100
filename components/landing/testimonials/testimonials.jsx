@@ -55,9 +55,9 @@ export function Testimonials({ testimonials }) {
 
     return (
         <div
-            className={`${styles.testimonialSectionArea} main_section main_section px-4`}
+            className={`${styles.testimonialSectionArea} section `}
         >
-            <div className="max-w-screen-xl mx-auto">
+            <div className="container">
                 <div className="row">
                     <div className="col-lg-5 m-auto">
                        <div className={`${styles.heading1} heading1 space-margin60 text-center`}>

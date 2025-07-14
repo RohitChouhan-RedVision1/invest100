@@ -4,15 +4,17 @@ import Tickers from "@/components/landing/tickers/tickers";
 import { Skeleton } from "@/components/ui/skeleton";
 
 import WebPopup from "@/components/webpopup";
-import { getServiceData, getSiteData, getSocialMedia } from "@/lib/functions";
+import { getArn,  getServiceData, getSiteData, getSocialMedia } from "@/lib/functions";
 import { Suspense } from "react";
 import AnimatedCursor from "react-animated-cursor"
 // import UpdatePopup from "@/components/updatepopup";
 
 export default async function Layout({ children }) {
     const siteData= await getSiteData();
-    const services = await getServiceData();
+    // const services = await getServiceData();
     const SocialMedia= await getSocialMedia()
+        const arnData = await getArn();
+    
     return (
         <div>
             {/* <AnimatedCursor
@@ -42,9 +44,9 @@ export default async function Layout({ children }) {
 
                     <Tickers />
                 </Suspense>
-            <Navbar siteData={siteData} services={services}/>
+            <Navbar siteData={siteData}/>
             {children}
-            <Footer siteData={siteData} services={services} SocialMedia={SocialMedia}/>
+            <Footer siteData={siteData}   SocialMedia={SocialMedia} arnData={arnData}/>
             {/* <UpdatePopup /> */}
             <WebPopup />
         </div>

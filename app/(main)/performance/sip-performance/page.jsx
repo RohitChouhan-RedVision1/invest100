@@ -3,14 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-  BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
+import RvBreadcrumbs from "@/components/landing/page-breadcrumbs/rvbreadcrumbs";
+
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
@@ -74,7 +68,7 @@ export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [graphData, setGraphData] = useState(false);
-  const [siteData,setSiteData]=useState("")
+  const [siteData, setSiteData] = useState("")
 
   const form = useForm({
     resolver: zodResolver(FormSchema),
@@ -165,13 +159,13 @@ export default function Page() {
     }
   };
 
-useEffect(() => {
-  if (selectedAcms && selectedAcms.length > 0) {
-    fetchSchemes();
-  }
-}, [selectedAcms]);
+  useEffect(() => {
+    if (selectedAcms && selectedAcms.length > 0) {
+      fetchSchemes();
+    }
+  }, [selectedAcms]);
 
- const fetchdata = async () => {
+  const fetchdata = async () => {
     const data = await fetch("/api/admin/site-settings", {
       cache: "force-cache",
     });
@@ -295,7 +289,7 @@ useEffect(() => {
 
   console.log(siteData)
   const handlePdf = async (result, title, startsipDate, valuationDate) => {
-    generatePDF(result, title, startsipDate, valuationDate, "graphId",siteData);
+    generatePDF(result, title, startsipDate, valuationDate, "graphId", siteData);
   };
 
   const handleModelOpen = (open) => {
@@ -310,395 +304,399 @@ useEffect(() => {
     }
   };
 
-  console.log(selectedAcms,schemesData)
+  console.log(selectedAcms, schemesData)
   return (
-    <div className="main_section">
-  
-      <div className="max-w-screen-xl mx-auto ">
-      <Toaster />
-     
-      <div>
+    <div className="">
+  <RvBreadcrumbs
+        maintitle='SIP Performace'
+        lastTitle2='Performance'
+              lastTitle='Tools'
+              lastTitleLink='/tools/calculators'
+              lastTitle2Link='/tools/calculators?tab=performance'
+      />
+      <div className="section">
+      <div className="container">
+        <Toaster />
+
         <div>
-          <div className="col-span-1 border border-gray-200 rounded-2xl bg-white hover:text-white p-2 mb-3">
-            <div className="sip-calculator container mx-auto p-3 sticky top-0 z-10">
-              {/* Investment Type Toggle */}
-              <div className="flex space-x-4 mb-8">
-                <Button
-                  onClick={() => (
-                    setIsMonthlySip(true),
-                    setSchemesData([]),
-                    setGraphData(false)
+          <div>
+            <div className="col-span-1 border border-gray-200 rounded-2xl bg-white hover:text-white p-2 mb-3">
+              <div className="sip-calculator container mx-auto p-3 sticky top-0 z-10">
+                {/* Investment Type Toggle */}
+                <div className="flex space-x-4 mb-8">
+                  <Button
+                    onClick={() => (
+                      setIsMonthlySip(true),
+                      setSchemesData([]),
+                      setGraphData(false)
+                    )}
+                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${isMonthlySip
+                        ? "bg-[var(--rv-secondary)] text-white"
+                        : "bg-[var(--rv-primary)] text-white"
+                      }`}
+                  >
+                    Fund House
+                  </Button>
+                  <Button
+                    onClick={() => (
+                      setIsMonthlySip(false),
+                      setSchemesData([]),
+                      setGraphData(false)
+                    )}
+                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${!isMonthlySip
+                        ? "bg-[var(--rv-secondary)] text-white"
+                        : "bg-[var(--rv-primary)] text-white"
+                      }`}
+                  >
+                    Asset Category
+                  </Button>
+                </div>
+
+                <div className="input-fields mt-5 mb-5">
+                  {isMonthlySip ? (
+                    <div className="w-full">
+                      <h1 className="font-semibold text-gray-700">Select ACM</h1>
+                      <div className="max-w-full mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
+                        <input
+                          type="text"
+                          placeholder="Search Scheme"
+                          className="w-full px-3 py-2 border rounded mb-1"
+                        />
+                        {/* Render checkboxes for each AMC */}
+                        {allAcmdata?.map((scheme, index) => (
+                          <div key={index} className="flex items-center mb-1">
+                            <input
+                              type="checkbox"
+                              id={`acm-${index}`}
+                              checked={selectedAcms.includes(scheme)}
+                              onChange={() => handleAcmSelect(scheme)}
+                              className="mr-2"
+                            />
+                            <label
+                              htmlFor={`acm-${index}`}
+                              className="text-stone-900 text-sm"
+                            >
+                              {scheme?.funddes}
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2  gap-x-4 gap-y-4">
+                      <div>
+                        <h1 className="font-semibold text-gray-700">
+                          Select Equity Funds
+                        </h1>
+                        <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
+                          {/* Equity Funds checkboxes here */}
+                          {assetCategory
+                            ?.filter((item) => item.nav_c2 === "Equity")
+                            .map((scheme, index) => (
+                              <div key={index} className="flex items-center mb-1">
+                                <input
+                                  type="checkbox"
+                                  id={`asset-${index}`}
+                                  checked={selectedAssets.has(
+                                    scheme.assets_class
+                                  )}
+                                  onChange={() => handleAssetSelect(scheme)}
+                                  className="mr-2"
+                                />
+                                <label
+                                  htmlFor={`asset-${index}`}
+                                  className="text-stone-900 text-sm"
+                                >
+                                  Equity - {scheme?.assets_class}
+                                </label>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h1 className="font-semibold text-gray-700">
+                          Select Debt Funds
+                        </h1>
+                        <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
+                          {assetCategory
+                            ?.filter((item) => item.nav_c2 === "Debt")
+                            .map((scheme, index) => (
+                              <div key={index} className="flex items-center mb-1">
+                                <input
+                                  type="checkbox"
+                                  id={`asset-${index}`}
+                                  checked={selectedAssets.has(
+                                    scheme.assets_class
+                                  )}
+                                  onChange={() => handleAssetSelect(scheme)}
+                                  className="mr-2"
+                                />
+                                <label
+                                  htmlFor={`asset-${index}`}
+                                  className="text-stone-900 text-sm"
+                                >
+                                  Debt - {scheme?.assets_class}
+                                </label>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h1 className="font-semibold text-gray-700">
+                          Select Hybrid Funds
+                        </h1>
+                        <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
+                          {/* Hybrid Funds checkboxes here */}
+                          {assetCategory
+                            ?.filter((item) => item.nav_c2 === "Hybrid")
+                            .map((scheme, index) => (
+                              <div key={index} className="flex items-center mb-1">
+                                <input
+                                  type="checkbox"
+                                  id={`asset-${index}`}
+                                  checked={selectedAssets.has(
+                                    scheme.assets_class
+                                  )}
+                                  onChange={() => handleAssetSelect(scheme)}
+                                  className="mr-2"
+                                />
+                                <label
+                                  htmlFor={`asset-${index}`}
+                                  className="text-stone-900 text-sm"
+                                >
+                                  Hybrid - {scheme?.assets_class}
+                                </label>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h1 className="font-semibold text-gray-700">
+                          Select Commodity Funds/ Others
+                        </h1>
+                        <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
+                          {assetCategory
+                            ?.filter(
+                              (item) =>
+                                item.nav_c2 === "Other " ||
+                                item.nav_c2 === "Others" ||
+                                item.nav_c2 === "Sol Oriented"
+                            )
+                            .map((scheme, index) => (
+                              <div key={index} className="flex items-center mb-1">
+                                <input
+                                  type="checkbox"
+                                  id={`asset-${index}`}
+                                  checked={selectedAssets.has(
+                                    scheme.assets_class
+                                  )}
+                                  onChange={() => handleAssetSelect(scheme)}
+                                  className="mr-2"
+                                />
+                                <label
+                                  htmlFor={`asset-${index}`}
+                                  className="text-stone-900 text-sm"
+                                >
+                                  Other - {scheme?.assets_class}
+                                </label>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                    </div>
                   )}
-                  className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${
-                    isMonthlySip
-                      ? "bg-[var(--rv-secondary)] text-white"
-                      : "bg-[var(--rv-primary)] text-white"
-                  }`}
-                >
-                  Fund House
-                </Button>
+                </div>
+                <hr />
+                <div className="grid grid-cols-1 lg:grid-cols-6">
+                  <div className="col-span-2 mt-2 overflow-y-auto p-2">
+                    {/* Dropdown for selecting a scheme */}
+                    <div className="mb-4">
+                      <label
+                        htmlFor="schemeSelect"
+                        className="text-sm block font-semibold text-gray-700 mb-1"
+                      >
+                        Select Scheme
+                      </label>
+                      <select
+                        id="schemeSelect"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        onChange={(e) => {
+                          const selectedScheme = schemesData?.data?.find(
+                            (scheme) => scheme.funddes === e.target.value
+                          );
+                          setPcode(selectedScheme?.pcode);
+                          setTitle(selectedScheme?.funddes);
+                        }}
+                      >
+                        <option value="" selected>
+                          Choose a scheme
+                        </option>
+                        {selectedAcms && selectedAcms.length > 0 && schemesData?.data ? (
+                          schemesData.data
+                            .filter((scheme) =>
+                              selectedAcms.some((acm) => acm.fund === scheme.fund)
+                            )
+                            .map((scheme, index) => (
+                              <option key={index} value={scheme.funddes}>
+                                {scheme.funddes}
+                              </option>
+                            ))
+                        ) : (
+                          <option disabled>Loading...</option>
+                        )}
+
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col-span-2 mt-2 overflow-y-auto p-2">
+                    {/* Text input for scheme name */}
+                    <div className="mb-4">
+                      <label
+                        htmlFor="schemeName"
+                        className="text-sm block font-semibold text-gray-700 mb-1"
+                      >
+                        SIP Amount (Monthly)
+                      </label>
+                      <input
+                        type="number"
+                        id="schemeName"
+                        placeholder="Enter scheme name"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        value={sipAmount}
+                        onChange={(e) => setSipAmount(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Date input for selecting a date */}
+                  <div className="col-span-2 mt-2 overflow-y-auto p-2">
+                    <div className="mb-4">
+                      <label
+                        htmlFor="schemeDate"
+                        className="text-sm block font-semibold text-gray-700 mb-1"
+                      >
+                        SIP Start Date
+                      </label>
+                      <input
+                        type="date"
+                        id="schemeDate"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        value={startsipDate}
+                        onChange={(e) => setStartSipDate(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  {/* Date input for selecting a date */}
+                  <div className="col-span-2 mt-2 overflow-y-auto p-2">
+                    <div className="mb-4">
+                      <label
+                        htmlFor="schemeDate"
+                        className="text-sm block font-semibold text-gray-700 mb-1"
+                      >
+                        SIP End Date
+                      </label>
+                      <input
+                        type="date"
+                        id="schemeDate"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        min={startsipDate}
+                        value={endsipDate}
+                        onChange={(e) => setEndSipDate(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  {/* Date input for selecting a date */}
+                  <div className="col-span-2 mt-2 overflow-y-auto p-2">
+                    <div className="mb-4">
+                      <label
+                        htmlFor="schemeDate"
+                        className="text-sm block font-semibold text-gray-700 mb-1"
+                      >
+                        Valuation As On
+                      </label>
+                      <input
+                        type="date"
+                        id="schemeDate"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        min={endsipDate}
+                        max={getTodayDate()}
+                        value={valuationDate}
+                        onChange={(e) => setValuationDate(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <Button
-                  onClick={() => (
-                    setIsMonthlySip(false),
-                    setSchemesData([]),
-                    setGraphData(false)
-                  )}
-                  className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${
-                    !isMonthlySip
-                      ? "bg-[var(--rv-secondary)] text-white"
-                      : "bg-[var(--rv-primary)] text-white"
-                  }`}
+                  className="bg-[var(--rv-secondary)] text-white hover:bg-[var(--rv-primary)]  hover:text-white"
+                  onClick={() => haldleSubmit()}
+                // disabled={!pcode} // disables when pcode is falsy (empty, null, undefined)
                 >
-                  Asset Category
+                  Show
                 </Button>
               </div>
-
-              <div className="input-fields mt-5 mb-5">
-                {isMonthlySip ? (
-                  <div className="w-full">
-                    <h1 className="font-semibold text-gray-700">Select ACM</h1>
-                    <div className="max-w-full mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
-                      <input
-                        type="text"
-                        placeholder="Search Scheme"
-                        className="w-full px-3 py-2 border rounded mb-1"
-                      />
-                      {/* Render checkboxes for each AMC */}
-                      {allAcmdata?.map((scheme, index) => (
-                        <div key={index} className="flex items-center mb-1">
-                          <input
-                            type="checkbox"
-                            id={`acm-${index}`}
-                            checked={selectedAcms.includes(scheme)}
-                            onChange={() => handleAcmSelect(scheme)}
-                            className="mr-2"
-                          />
-                          <label
-                            htmlFor={`acm-${index}`}
-                            className="text-stone-900 text-sm"
-                          >
-                            {scheme?.funddes}
-                          </label>
-                        </div>
-                      ))}
+            </div>
+            <div className="col-span-1">
+              {graphData && (
+                <div className="mb-5 flex justify-between">
+                  <div className="space-x-2">
+                    <Button
+                      variant="outline"
+                      className={`border-2 ${viewby === "graph" ? "border-blue-600" : "border-gray-600"
+                        } uppercase font-semibold text-gray-800`}
+                      onClick={() => setViewBy("graph")}
+                    >
+                      Graph
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className={`border-2 ${viewby === "table" ? "border-blue-600" : "border-gray-600"
+                        } uppercase font-semibold text-gray-800`}
+                      onClick={() => setViewBy("table")}
+                    >
+                      Table
+                    </Button>
+                  </div>
+                  <div
+                    className="cursor-pointer"
+                    onClick={() =>
+                      handlePdf(
+                        result.sipData,
+                        title,
+                        startsipDate,
+                        valuationDate
+                      )
+                    }
+                  >
+                    <h1 className="text-2xl">
+                      <FaFilePdf />
+                    </h1>
+                  </div>
+                </div>
+              )}
+              {result ? (
+                viewby === "graph" ? (
+                  <div id="graphId">
+                    <div>
+                      {" "}
+                      {/* Adjust width as needed */}
+                      {graphData && (
+                        <SipPerformanceChart
+                          piedata={result}
+                          startDate={startsipDate}
+                          endDate={valuationDate}
+                          title={title}
+                        />
+                      )}
                     </div>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2  gap-x-4 gap-y-4">
-                    <div>
-                      <h1 className="font-semibold text-gray-700">
-                        Select Equity Funds
-                      </h1>
-                      <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
-                        {/* Equity Funds checkboxes here */}
-                        {assetCategory
-                          ?.filter((item) => item.nav_c2 === "Equity")
-                          .map((scheme, index) => (
-                            <div key={index} className="flex items-center mb-1">
-                              <input
-                                type="checkbox"
-                                id={`asset-${index}`}
-                                checked={selectedAssets.has(
-                                  scheme.assets_class
-                                )}
-                                onChange={() => handleAssetSelect(scheme)}
-                                className="mr-2"
-                              />
-                              <label
-                                htmlFor={`asset-${index}`}
-                                className="text-stone-900 text-sm"
-                              >
-                                Equity - {scheme?.assets_class}
-                              </label>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h1 className="font-semibold text-gray-700">
-                        Select Debt Funds
-                      </h1>
-                      <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
-                        {assetCategory
-                          ?.filter((item) => item.nav_c2 === "Debt")
-                          .map((scheme, index) => (
-                            <div key={index} className="flex items-center mb-1">
-                              <input
-                                type="checkbox"
-                                id={`asset-${index}`}
-                                checked={selectedAssets.has(
-                                  scheme.assets_class
-                                )}
-                                onChange={() => handleAssetSelect(scheme)}
-                                className="mr-2"
-                              />
-                              <label
-                                htmlFor={`asset-${index}`}
-                                className="text-stone-900 text-sm"
-                              >
-                                Debt - {scheme?.assets_class}
-                              </label>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h1 className="font-semibold text-gray-700">
-                        Select Hybrid Funds
-                      </h1>
-                      <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
-                        {/* Hybrid Funds checkboxes here */}
-                        {assetCategory
-                          ?.filter((item) => item.nav_c2 === "Hybrid")
-                          .map((scheme, index) => (
-                            <div key={index} className="flex items-center mb-1">
-                              <input
-                                type="checkbox"
-                                id={`asset-${index}`}
-                                checked={selectedAssets.has(
-                                  scheme.assets_class
-                                )}
-                                onChange={() => handleAssetSelect(scheme)}
-                                className="mr-2"
-                              />
-                              <label
-                                htmlFor={`asset-${index}`}
-                                className="text-stone-900 text-sm"
-                              >
-                                Hybrid - {scheme?.assets_class}
-                              </label>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h1 className="font-semibold text-gray-700">
-                        Select Commodity Funds/ Others
-                      </h1>
-                      <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
-                        {assetCategory
-                          ?.filter(
-                            (item) =>
-                              item.nav_c2 === "Other " ||
-                              item.nav_c2 === "Others" ||
-                              item.nav_c2 === "Sol Oriented"
-                          )
-                          .map((scheme, index) => (
-                            <div key={index} className="flex items-center mb-1">
-                              <input
-                                type="checkbox"
-                                id={`asset-${index}`}
-                                checked={selectedAssets.has(
-                                  scheme.assets_class
-                                )}
-                                onChange={() => handleAssetSelect(scheme)}
-                                className="mr-2"
-                              />
-                              <label
-                                htmlFor={`asset-${index}`}
-                                className="text-stone-900 text-sm"
-                              >
-                                Other - {scheme?.assets_class}
-                              </label>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <hr />
-              <div className="grid grid-cols-1 lg:grid-cols-6">
-                <div className="col-span-2 mt-2 overflow-y-auto p-2">
-                  {/* Dropdown for selecting a scheme */}
-                  <div className="mb-4">
-                    <label
-                      htmlFor="schemeSelect"
-                      className="text-sm block font-semibold text-gray-700 mb-1"
-                    >
-                      Select Scheme
-                    </label>
-                    <select
-                      id="schemeSelect"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      onChange={(e) => {
-                        const selectedScheme = schemesData?.data?.find(
-                          (scheme) => scheme.funddes === e.target.value
-                        );
-                        setPcode(selectedScheme?.pcode);
-                        setTitle(selectedScheme?.funddes);
-                      }}
-                    >
-                      <option value="" selected>
-                        Choose a scheme
-                      </option>
-                      {selectedAcms && selectedAcms.length > 0 && schemesData?.data ? (
-  schemesData.data
-    .filter((scheme) =>
-      selectedAcms.some((acm) => acm.fund === scheme.fund)
-    )
-    .map((scheme, index) => (
-      <option key={index} value={scheme.funddes}>
-        {scheme.funddes}
-      </option>
-    ))
-) : (
-  <option disabled>Loading...</option>
-)}
-
-                    </select>
-                  </div>
-                </div>
-                <div className="col-span-2 mt-2 overflow-y-auto p-2">
-                  {/* Text input for scheme name */}
-                  <div className="mb-4">
-                    <label
-                      htmlFor="schemeName"
-                      className="text-sm block font-semibold text-gray-700 mb-1"
-                    >
-                      SIP Amount (Monthly)
-                    </label>
-                    <input
-                      type="number"
-                      id="schemeName"
-                      placeholder="Enter scheme name"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      value={sipAmount}
-                      onChange={(e) => setSipAmount(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                {/* Date input for selecting a date */}
-                <div className="col-span-2 mt-2 overflow-y-auto p-2">
-                  <div className="mb-4">
-                    <label
-                      htmlFor="schemeDate"
-                      className="text-sm block font-semibold text-gray-700 mb-1"
-                    >
-                      SIP Start Date
-                    </label>
-                    <input
-                      type="date"
-                      id="schemeDate"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      value={startsipDate}
-                      onChange={(e) => setStartSipDate(e.target.value)}
-                    />
-                  </div>
-                </div>
-                {/* Date input for selecting a date */}
-                <div className="col-span-2 mt-2 overflow-y-auto p-2">
-                  <div className="mb-4">
-                    <label
-                      htmlFor="schemeDate"
-                      className="text-sm block font-semibold text-gray-700 mb-1"
-                    >
-                      SIP End Date
-                    </label>
-                    <input
-                      type="date"
-                      id="schemeDate"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      min={startsipDate}
-                      value={endsipDate}
-                      onChange={(e) => setEndSipDate(e.target.value)}
-                    />
-                  </div>
-                </div>
-                {/* Date input for selecting a date */}
-                <div className="col-span-2 mt-2 overflow-y-auto p-2">
-                  <div className="mb-4">
-                    <label
-                      htmlFor="schemeDate"
-                      className="text-sm block font-semibold text-gray-700 mb-1"
-                    >
-                      Valuation As On
-                    </label>
-                    <input
-                      type="date"
-                      id="schemeDate"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      min={endsipDate}
-                      max={getTodayDate()}
-                      value={valuationDate}
-                      onChange={(e) => setValuationDate(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <Button
-                className="bg-[var(--rv-secondary)] text-white hover:bg-[var(--rv-primary)]  hover:text-white"
-                onClick={() => haldleSubmit()}
-                // disabled={!pcode} // disables when pcode is falsy (empty, null, undefined)
-              >
-                Show
-              </Button>
-            </div>
-          </div>
-          <div className="col-span-1">
-            {graphData && (
-              <div className="mb-5 flex justify-between">
-                <div className="space-x-2">
-                  <Button
-                    variant="outline"
-                    className={`border-2 ${
-                      viewby === "graph" ? "border-blue-600" : "border-gray-600"
-                    } uppercase font-semibold text-gray-800`}
-                    onClick={() => setViewBy("graph")}
-                  >
-                    Graph
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className={`border-2 ${
-                      viewby === "table" ? "border-blue-600" : "border-gray-600"
-                    } uppercase font-semibold text-gray-800`}
-                    onClick={() => setViewBy("table")}
-                  >
-                    Table
-                  </Button>
-                </div>
-                <div
-                  className="cursor-pointer"
-                  onClick={() =>
-                    handlePdf(
-                      result.sipData,
-                      title,
-                      startsipDate,
-                      valuationDate
-                    )
-                  }
-                >
-                  <h1 className="text-2xl">
-                    <FaFilePdf />
-                  </h1>
-                </div>
-              </div>
-            )}
-            {result ? (
-              viewby === "graph" ? (
-                <div id="graphId">
-                  <div>
-                    {" "}
-                    {/* Adjust width as needed */}
-                    {graphData && (
-                      <SipPerformanceChart
-                        piedata={result}
-                        startDate={startsipDate}
-                        endDate={valuationDate}
-                        title={title}
-                      />
-                    )}
-                  </div>
-                </div>
+                  <div>{graphData && <SipPerformanceTable data={result} />}</div>
+                )
               ) : (
-                <div>{graphData && <SipPerformanceTable data={result} />}</div>
-              )
-            ) : (
-              <div>No Data Found</div>
-            )}
+                <div>No Data Found</div>
+              )}
+            </div>
           </div>
         </div>
       </div>

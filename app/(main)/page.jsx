@@ -37,7 +37,7 @@ export default async function Page({ children }) {
                 <EmiCalculator /> */}
                 <Testimonials testimonials={testimonials}/>
                 {/* <OurHistory /> */}
-                <OurPosts vidios={vidios} />
+                {/* <OurPosts vidios={vidios} /> */}
                 <SubscribCard amclogos={amclogos} />
             </main>
         </div>

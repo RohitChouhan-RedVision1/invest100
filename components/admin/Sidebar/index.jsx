@@ -517,7 +517,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <Image
               width={200}
               height={60}
-              src={"/logo/logo1.png"}
+              src={"/images/logo.webp"}
               alt="Logo"
               priority
               className=""

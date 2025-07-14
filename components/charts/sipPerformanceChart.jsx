@@ -21,22 +21,19 @@ import {
 export const description = "An area chart with gradient fill";
 
 const chartConfig = {
-    amount: {
-        label: "Amount",
-        color: "#00aeef",
-    },
     currentvalue: {
         label: "Current Value",
-        color: "hsl(var(--chart-3))",
+        color: "var(--rv-secondary)",
+    },
+    amount: {
+        label: "Amount",
+        color: "var(--rv-primary)",
     },
 };
 
 // Function to filter data based on the given range
 const filterDataByRange = (sipData) => {
-    // Check if sipData is valid
     if (!sipData || !Array.isArray(sipData)) return [];
-
-
     return sipData.map((item) => ({
         date: item.navDate || new Date().toISOString(), // Use current date if navDate is not defined
         amount: item.amount || 0, // Default to 0 if amount is undefined
@@ -48,6 +45,20 @@ export function SipPerformanceChart({ piedata, startDate, endDate, title }) {
     const [chartData, setChartData] = React.useState([]);
     const [valuation, setValuation] = React.useState([]);
 
+    const getMinValue = () => {
+        const values = chartData
+            .flatMap((item) => [item.amount, item.sensexAmount])
+            .filter((v) => v !== undefined && !isNaN(v) && v !== null);
+        return values.length > 0 ? Math.min(...values) * 0.95 : 0;
+    };
+
+    const getMaxValue = () => {
+        const values = chartData
+            .flatMap((item) => [item.amount, item.sensexAmount])
+            .filter((v) => v !== undefined && !isNaN(v) && v !== null);
+        return values.length > 0 ? Math.max(...values) * 1.05 : 100;
+    };
+
     // Effect to update chart data whenever piedata changes
     React.useEffect(() => {
         setChartData(filterDataByRange(piedata?.sipData));
@@ -57,43 +68,13 @@ export function SipPerformanceChart({ piedata, startDate, endDate, title }) {
     return (
         <Card>
             <CardHeader>
-                <div className="grid grid-cols-7 gap-x-3 mb-5">
-                    <div className="py-2 px-3 border border-stone-600 shadow shadow-emerald-100 rounded-sm text-center">
-                        <h1 className="font-semibold text-gray-800 text-sm">Amount Invested</h1>
-                        <h1 className="font-medium text-gray-900 text-sm">{valuation?.investedAmount}</h1>
-                    </div>
-                    <div className="py-2 px-3 border border-stone-600 shadow shadow-emerald-100 rounded-sm text-center">
-                        <h1 className="font-semibold text-gray-800 text-sm">Current Value</h1>
-                        <h1 className="font-medium text-gray-900 text-sm">{valuation?.currentAssetValue}</h1>
-                    </div>
-                    <div className="py-2 px-3 border border-stone-600 shadow shadow-emerald-100 rounded-sm text-center">
-                        <h1 className="font-semibold text-gray-800 text-sm">Profit/Loss</h1>
-                        <h1 className="font-medium text-gray-900 text-sm">{valuation?.pl}</h1>
-                    </div>
-                    <div className="py-2 px-3 border border-stone-600 shadow shadow-emerald-100 rounded-sm text-center">
-                        <h1 className="font-semibold text-gray-800 text-sm">MONTHLY SIP</h1>
-                        <h1 className="font-medium text-gray-900 text-sm">{valuation?.sipAmout}</h1>
-                    </div>
-                    <div className="py-2 px-3 border border-stone-600 shadow shadow-emerald-100 rounded-sm text-center">
-                        <h1 className="font-semibold text-gray-800 text-sm">Current NAV</h1>
-                        <h1 className="font-medium text-gray-900 text-sm">{valuation?.currentNav}</h1>
-                    </div>
-                    <div className="py-2 px-3 border border-stone-600 shadow shadow-emerald-100 rounded-sm text-center">
-                        <h1 className="font-semibold text-gray-800 text-sm">Absolute Return(%)</h1>
-                        <h1 className="font-medium text-gray-900 text-sm">{valuation?.absoluteReturns}</h1>
-                    </div>
-                    <div className="py-2 px-3 border border-stone-600 shadow shadow-emerald-100 rounded-sm text-center">
-                        <h1 className="font-semibold text-gray-800 text-sm">XIRR (%)</h1>
-                        <h1 className="font-medium text-gray-900 text-sm">{valuation?.xirrRate}</h1>
-                    </div>
-                </div>
                 <CardTitle>{title}</CardTitle>
                 <CardDescription>
                     {startDate} to {endDate} (Current Value As on {endDate})
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <ChartContainer config={chartConfig}>
+                <ChartContainer config={chartConfig} className="h-60 w-full">
                     <AreaChart
                         accessibilityLayer
                         data={chartData}
@@ -116,6 +97,7 @@ export function SipPerformanceChart({ piedata, startDate, endDate, title }) {
                             }
                         />
                         <YAxis
+                            domain={[getMinValue(), getMaxValue()]}
                             tickLine={false}
                             axisLine={false}
                             tickMargin={8}
@@ -137,7 +119,7 @@ export function SipPerformanceChart({ piedata, startDate, endDate, title }) {
                             </linearGradient>
                             <linearGradient id="fillCurrentvalue" x1="0" y1="0" x2="0" y2="1">
                                 <stop
-                                    offset="5%"
+                                    offset="0%"
                                     stopColor="var(--color-currentvalue)"
                                     stopOpacity={1}
                                 />
@@ -174,7 +156,7 @@ export function SipPerformanceChart({ piedata, startDate, endDate, title }) {
                             Trending up by {valuation?.absoluteReturns}%<TrendingUp className="h-4 w-4" />
                         </div>
                         <div className="flex items-center gap-2 leading-none text-muted-foreground">
-                            {startDate} - {endDate}
+                            {startDate} to {endDate}
                         </div>
                     </div>
                 </div>

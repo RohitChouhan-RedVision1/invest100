@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 const HeroSection = () => {
     return (
-        <div className={styles.heroSectionArea} style={{ backgroundImage: 'url(/all-images/bg/hero-bg1.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-            <div className="max-w-screen-xl mx-auto  main_section1">
+        <div className={`${styles.heroSectionArea} section`} style={{ backgroundImage: 'url(/images/bg/hero-bg.webp)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+            <div className="container">
                 <div class="grid lg:grid-cols-2 grid-cols-1 items-center justify-center">
                     <div>
                         <div className={styles.headingArea}>
@@ -26,13 +26,13 @@ const HeroSection = () => {
                     <div data-aos="zoon-in" data-aos-duration="1000">
                         <div className={styles.heroImagesArea}>
                             <div className={styles.img1}>
-                                <Image src="/all-images/hero/hero-img1.png" alt="" width={500} height={300} />
+                                <Image src="/images/hero-img.webp" alt="" width={500} height={300} />
                             </div>
                              
-                            <img src="/elements/elements2.svg" className={`${styles.elements2} aniamtion-key-4`} alt="" />
-                            <img src="/elements/elements3.svg" className={`${styles.elements3} aniamtion-key-1`} alt="" />
-                            <img src="/elements/elements4.svg" className={`${styles.elements4} aniamtion-key-2`} alt="" />
-                            <img src="/elements/elements5.svg" className={`${styles.elements5} keyframe5`} alt="" />
+                            <img src="/images/elements2.svg" className={`${styles.elements2} aniamtion-key-4`} alt="" />
+                            <img src="/images/elements3.svg" className={`${styles.elements3} aniamtion-key-1`} alt="" />
+                            <img src="/images/elements4.svg" className={`${styles.elements4} aniamtion-key-2`} alt="" />
+                            <img src="/images/elements5.svg" className={`${styles.elements5} keyframe5`} alt="" />
                         </div>
                     </div>
                 </div>

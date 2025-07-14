@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
-
+  background-color: var(--rv-bg-primary);
 }
 
 @media (max-width: 767px) {
@@ -10,19 +10,16 @@
     padding: 60px 0 0 0;
   }
 }
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .heroSectionArea {
     padding: 60px 0 0 0;
   }
 }
-
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
   .heroSectionArea {
     padding: 80px 0 0 0;
   }
 }
-
 .heroSectionArea .headingArea h5 {
   border-radius: 6px;
   background: color-mix(in srgb, var(--rv-primary) 10%, transparent);
@@ -44,7 +41,6 @@
     line-height: 16px;
   }
 }
-
 .heroSectionArea .headingArea h1 {
   color: var(--rv-primary);
   font-family: var(--ztc-family-font1);
@@ -62,9 +58,8 @@
     line-height: 40px;
   }
 }
-
 .heroSectionArea .headingArea p {
-  color: #0766e5d9;
+  color: rgba(7, 102, 229, 0.8509803922);
   font-family: var(--ztc-family-font1);
   font-size: var(--ztc-font-size-font-s18);
   font-style: normal;
@@ -117,7 +112,6 @@
     margin-top: 20px;
   }
 }
-
 .heroSectionArea .headingArea .btnArea .vlBtn1.btn2:hover {
   color: var(--rv-secondary);
   transition: all 0.4s;
@@ -146,30 +140,27 @@
     margin-top: 30px;
   }
 }
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .heroSectionArea .heroImagesArea {
     left: 0;
     margin-top: 30px;
   }
 }
-
 @media only screen and (min-width: 1600px) and (max-width: 1700px) {
   .heroSectionArea .heroImagesArea {
     left: 0;
   }
 }
-
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
   .heroSectionArea .heroImagesArea {
     left: 0;
   }
 }
-
 .heroSectionArea .heroImagesArea .img1 img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .heroSectionArea .heroImagesArea .elements1 {
@@ -196,7 +187,6 @@
     display: none;
   }
 }
-
 .heroSectionArea .heroImagesArea .elements4 {
   position: absolute;
   bottom: 50px;
@@ -208,7 +198,6 @@
     display: none;
   }
 }
-
 .heroSectionArea .heroImagesArea .elements5 {
   position: absolute;
   bottom: -20px;
