@@ -61,9 +61,9 @@ export function Testimonials({ testimonials }) {
                 <div className="row">
                     <div className="col-lg-5 m-auto">
                        <div className={`${styles.heading1} heading1 space-margin60 text-center`}>
-                            <h5 className="text-white">Testimonial</h5>
+                            <h5 className="text-white">WHAT OUR INVESTORS SAY</h5>
                             <div className="space20"></div>
-                            <h2 className="text-anime-style-1">Client Success Stories</h2>
+                            <h2 className="text-anime-style-1">Helping Everyday Investors Build Wealth</h2>
                          </div>
                     </div>
                  </div>

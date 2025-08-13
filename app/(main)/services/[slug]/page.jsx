@@ -25,7 +25,7 @@ export default function ServicePage({ params }) {
           <div className={`${styles.rvcard}`}>
             <div className="">{service.getInTouchDescription}</div>
             <div className={`${styles.rvcardBody}`}>
-              <Link href={service.getInTouchButtonLink} className="btn btn-primary">
+              <Link href={`${service.getInTouchButtonLink}`} target={service.target}    className="btn btn-primary">
                 <span>{service.getInTouchButton}</span>
               </Link>
             </div>

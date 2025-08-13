@@ -11,11 +11,12 @@ const HeroSection = () => {
                 <div class="grid lg:grid-cols-2 grid-cols-1 items-center justify-center">
                     <div>
                         <div className={styles.headingArea}>
-                            <h5 data-aos="fade-left" data-aos-duration="800">Strategic Solutions For Financial Growth</h5>
+                            <h5 data-aos="fade-left" data-aos-duration="800">₹500/month SIP can become ₹2.5 Lacs in 10 Years! Why wait?</h5>
                             <div class="space20"></div>
-                            <h1 class="text-anime-style-1">Maximize Your Wealth with Professional Financial Services</h1>
+                            <h4 class="text-anime-style-1">Join countless individuals who have effortlessly embarked on their Mutual Fund journey with our Invest100 app, beginning with as little as ₹100 per month!</h4>
                             <div class="space20"></div>
-                            <p data-aos="fade-left" data-aos-duration="1000">You Come First, Always - Its More Than Financial Success; It&apos;s About Your Well-being!</p>
+                            <p data-aos="fade-left" data-aos-duration="1000">Initiate your SIP or Lumpsum investment today and witness the growth and compounding of your wealth like never before. Our mobile application lets you effortlessly 
+invest in and manage your Mutual Funds</p>
                             <div class="space32"></div>
                             <div className={styles.btnArea}>
                                 <Link href="/service/mutual-funds" className={"vl-btn1"}>Explore Our Services</Link>

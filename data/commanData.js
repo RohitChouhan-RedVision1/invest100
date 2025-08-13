@@ -73,7 +73,7 @@ export const servicesdata = [{
         keyword: 'Stock Broking',
         iconeImg: '/images/icons/stock-broking.svg',
         imgContent: '/images/services/stock-broking.webp',
-        getInTouchButton: 'Open Your Trading Account Now',
+        getInTouchButton: 'Open your Trading & Demat account now',
         getInTouchDescription: "Experience reliable, fast, and affordable stock broking-designed for your financial growth.",
         getInTouchButtonLink: '/contact-us',
         shortDescription: "Stock broking is your gateway to wealth-building through equities. Whether you're a beginner or an experienced trader, having the right platform and guidance is key. At Invest100, we offer a reliable and secure way to invest in listed companies through stock exchanges, with full transparency and expert support.",
@@ -88,7 +88,7 @@ export const servicesdata = [{
         </ul>
         </div>
  <div class='boxShadow1 rvscard'>
-        <h5>Key Features of Invest100’s Stock Broking:</h5>
+        <h5>Key Features of Invest100's Stock Broking Partner App:</h5>
         <ul class='rvlist'>
         <li><b>User-Friendly Trading Platform:</b> Access live markets and execute trades smoothly on desktop or mobile with our intuitive interface.</li>
         <li><b>Competitive Brokerage:</b> Trade at low costs with transparent pricing—no hidden charges, no surprises.</li>
@@ -195,9 +195,10 @@ export const servicesdata = [{
         keyword: 'Unlisted stocks',
         iconeImg: '/images/icons/Unlisted-stocks.svg',
         imgContent: '/images/services/unlisted-stocks.webp',
-        getInTouchButton: 'Explore Unlisted Stock Opportunities Today',
+        getInTouchButton: 'Explore Unlisted',
         getInTouchDescription: 'Get early access to future leaders-curated, transparent, and backed by expert research.',
-        getInTouchButtonLink: '/contact-us',
+        getInTouchButtonLink: 'https://www.thesauda.com/',
+        target: 'target="_"',
         shortDescription: "Unlisted stocks offer a unique way to invest in companies that are not yet traded on public stock exchanges. These early-stage opportunities can provide strong long-term growth potential, especially when accessed with the right information and guidance. Invest100 helps you explore this space securely and transparently.",
         description: `<div>
         <p class=boxShadow>Unlisted stocks offer a unique way to invest in companies that are not yet traded on public stock exchanges. These early-stage opportunities can provide strong long-term growth potential, especially when accessed with the right information and guidance. Invest100 helps you explore this space securely and transparently.</p>
@@ -212,7 +213,7 @@ export const servicesdata = [{
         </ul>
         </div>
  <div class='boxShadow1 rvscard'>
-        <h5>Key Features of Invest100's Unlisted Stock Service:</h5>
+        <h5>Key Features of SAUDA - iOS & Android</h5>
         <ul class='rvlist'>
         <li><b>Curated Investment Opportunities:</b>Access vetted and researched unlisted companies across industries and growth stages.</li>
         <li><b>Transparent Pricing & Execution:</b>Get full visibility into pricing, documentation, and deal structure—no hidden terms.</li>

@@ -124,10 +124,10 @@ const Navbar = ({ siteData }) => {
                     </div>
                     <span className={`${styles.btnWrap} text-end`}>
                       <span className={styles.icons}>
-                        <img src="/images/icons/phone.svg" alt="Phone" />
+                        <img src="/images/icons/whatsapp.svg" alt="whatsapp" />
                       </span>
                       <span className={styles.text}>
-                        <span>Hotline 24/7</span>
+                        <span>Free Assistance 24/7</span>
                         <Link href={`tel:${siteData.mobile}`}>
                           {siteData.mobile}
                         </Link>

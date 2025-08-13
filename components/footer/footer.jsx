@@ -49,7 +49,8 @@ const Footer = ({ siteData, services, SocialMedia, arnData }) => {
                         <div className={styles.footerLogo}>
                             <Link href={"/"}><img src="/images/logo.webp" alt="" /></Link>
                             <div className="space24"></div>
-                            <p>{siteData.websiteName} are AMFI-Registered Mutual Fund Distributors. {siteData.websiteName} offer access to investment products based on your financial goals and risk profile.</p>
+                            <p><b>{siteData.websiteName}</b> is your trusted guide to long-term wealth. We simplify investing for every Indian - from students to seasoned professionals.</p>
+                          
                             <div className="space24"></div>
                             <ul className='grid grid-cols-6'>
                                 {SocialMedia?.map((item, index) => (

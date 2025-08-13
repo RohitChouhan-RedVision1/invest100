@@ -17,9 +17,9 @@ const OurServices = ({ services }) => {
                 <div className="row">
                     <div className="col-lg-5">
                         <div className="heading1 space-margin60">
-                            <h5>OUR SERVICE</h5>
+                            <h5>OUR SERVICES</h5>
                             <div className="space20"></div>
-                            <h2 className="text-anime-style-1">Professional Services for Business Success</h2>
+                            <h2 className="text-anime-style-1">Backed by Experience, Built for You</h2>
                         </div>
                     </div>
                 </div>

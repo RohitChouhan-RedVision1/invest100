@@ -8,7 +8,7 @@ export default function AboutSection({siteData}) {
     return (
         <div className={`${styles.aboutSectionArea} section`}>
             <div class="container">
-                <div class="grid   md:grid-cols-12 items-center">
+                <div class="grid   md:grid-cols-12  ">
                     <div class="col-span-1"></div>
                     <div class="col-span-6">
                         <div className={styles.aboutImagesArea}>
@@ -35,9 +35,13 @@ export default function AboutSection({siteData}) {
                         <div className={`${styles.aboutHeading} heading1`}>
                             <h5>About Us</h5>
                             <div class="space16"></div>
-                            <h2 class="text-anime-style-1">Grow Your Wealth with Mutual Fund Services</h2>
+                            <h2 class="text-anime-style-1">Why Choose Invest100 for Your Investment Journey?</h2>
                             <div class="space16"></div>
-                            <p>Welcome to {siteData.websiteName}, your trusted financial companion in India. We understand that your financial journey is more than just numbers; it&apos;s a story of dreams, aspirations, and the legacy you want to leave behind. At {siteData.websiteName}, we are driven by the belief that everyone deserves a secure and prosperous future.</p>
+                            <p>Welcome to <b>Invest100</b>, your trusted mutual fund distributor for smart, simple and secure mutual fund investing. </p>
+                            <p>We help first-time and seasoned investors start small, stay consistent, and build wealth over time - starting with as low as ₹100. </p>
+                            <p>Whether it's for your dream home, child's future, or retirement, <b>Invest100</b> makes investing effortless, guided and goal-driven with complimentary help round the clock.</p>
+                            <p>Our dedicated team of financial experts is committed to providing you with the best guidance and solutions tailored to your unique needs. We take pride in the relationships we've built with our clients, and their success stories inspire us every day.</p>
+                            <p>In a rapidly changing world, we remain dedicated to helping you secure your financial future. Your dreams are our top priority, and your trust is the foundation of our service.</p>
                             <div class="space32"></div>
                             <div className={styles.peraBox} >
                                 <div className={`${styles.icons} p-2`}>
@@ -50,10 +54,9 @@ export default function AboutSection({siteData}) {
                                     />
                                 </div>
                                 <div className={styles.text}>
-                                    <Link href="/">Financial Solution</Link>
+                                    <Link href="/">This user-friendly application is designed for everyone</Link>
                                     <div class="space10"></div>
-                                    <p>Growth. Dedication. Trust - Your financial well-being is our shared responsibility!
-                                    </p>
+                                    <p>Support is readily available should you encounter any difficulties. Remember, even small contributions can lead to significant results. Explore investment options tailored to your specific goals</p>
                                 </div>
                             </div>
                             <div class="space32"></div>
