@@ -42,7 +42,7 @@ const Footer = ({ siteData, services, SocialMedia, arnData }) => {
         },
     ]
     return (
-        <div className={`${styles.footer1SectionArea} section pb-0`}>
+        <div className={`${styles.footer1SectionArea} section main-footer pb-0`}>
             <div className="container">
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
                     <div className="col-lg-3 col-md-6 ">

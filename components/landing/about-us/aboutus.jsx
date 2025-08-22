@@ -39,9 +39,9 @@ export default function AboutSection({siteData}) {
                             <div class="space16"></div>
                             <p>Welcome to <b>Invest100</b>, your trusted mutual fund distributor for smart, simple and secure mutual fund investing. </p>
                             <p>We help first-time and seasoned investors start small, stay consistent, and build wealth over time - starting with as low as ₹100. </p>
-                            <p>Whether it&lsquo;s for your dream home, child&lsquo;s future, or retirement, <b>Invest100</b> makes investing effortless, guided and goal-driven with complimentary help round the clock.</p>
-                            <p>Our dedicated team of financial experts is committed to providing you with the best guidance and solutions tailored to your unique needs. We take pride in the relationships we&lsquo;ve built with our clients, and their success stories inspire us every day.</p>
-                            <p>In a rapidly changing world, we remain dedicated to helping you secure your financial future. Your dreams are our top priority, and your trust is the foundation of our service.</p>
+                            {/* <p>Whether it&lsquo;s for your dream home, child&lsquo;s future, or retirement, <b>Invest100</b> makes investing effortless, guided and goal-driven with complimentary help round the clock.</p> */}
+                            {/* <p>Our dedicated team of financial experts is committed to providing you with the best guidance and solutions tailored to your unique needs. We take pride in the relationships we&lsquo;ve built with our clients, and their success stories inspire us every day.</p> */}
+                            {/* <p>In a rapidly changing world, we remain dedicated to helping you secure your financial future. Your dreams are our top priority, and your trust is the foundation of our service.</p> */}
                             <div class="space32"></div>
                             <div className={styles.peraBox} >
                                 <div className={`${styles.icons} p-2`}>

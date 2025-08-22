@@ -2,12 +2,31 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
+    padding-top: 130px;
     background-color: var(--rv-bg-primary);
 }
 
 @media (max-width: 767px) {
     .heroSectionArea {
         padding: 60px 0 0 0;
+    }
+}
+
+.heroappLinks {
+    ul {
+        display: flex;
+        justify-content: start;
+        gap: 20px;
+        margin-bottom: 20px;
+        li {
+            a {
+                display: block;
+                img {
+                    height: 50px;
+                    object-fit: contain;
+                }
+            }
+        }
     }
 }
 
@@ -190,8 +209,32 @@
 }
 
 @media (max-width: 767px) {
-    .heroSectionArea .heroImagesArea .elements3 {
-        display: none;
+    .heroSectionArea .heroImagesArea {
+        .img1 {
+            img {
+                height: 400px;
+            }
+        }
+        .eimg {
+            height: 60px;
+        }
+        .elements3 {
+            // display: none;
+            top: 50%;
+            left: 0;
+        }
+        .elements2 {
+            top: 35%;
+        }
+    }
+    .heroSectionArea .headingArea .btnArea {
+        gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        .vlBtn1.btn2 {
+            margin-top: 0;
+        }
     }
 }
 
@@ -203,7 +246,7 @@
 
 @media (max-width: 767px) {
     .heroSectionArea .heroImagesArea .elements4 {
-        display: none;
+        // display: none;
     }
 }
 
@@ -215,6 +258,6 @@
 
 @media (max-width: 767px) {
     .heroSectionArea .heroImagesArea .elements2 {
-        display: none;
+        // display: none;
     }
 }

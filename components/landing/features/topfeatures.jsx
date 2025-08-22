@@ -46,7 +46,7 @@ const TopFeatures = () => {
             <Slider {...settings} className={styles.projectSingleBoxarea}>
               {toolsdata.map((card, index) => (
                 <div key={index} className={`${styles.projectBoxarea} heading1`} data-aos={card.animation}>
-                  <Link href={card.icon}>
+                  <Link href={card.link}>
                     <h5>Featured Tool</h5>
                     <div className="space16"></div>
                     <h4>

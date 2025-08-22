@@ -35,9 +35,9 @@ const SubscribCard = ({ amclogos }) => {
           {amclogos.map((logo, index) => (
             <CarouselItem
               key={index}
-              className="pl-1 md:basis-1/2 lg:basis-1/5"
+              className="pl-1 basis-1/2 md:basis-1/2 lg:basis-1/5"
             >
-              <div className="px-5 main_section">
+              <div className="">
                 <a
                   href={logo.logourl}
                   target="_blank"
@@ -47,7 +47,7 @@ const SubscribCard = ({ amclogos }) => {
                     src={`https://redvisionweb.com/${logo.logo}`}
                     alt={logo.logoname}
                     width={160}
-                    height={180}
+                    height={60}
                     className="opacity-80 hover:opacity-100 transition ease-in-out duration-75"
                   />
                 </a>

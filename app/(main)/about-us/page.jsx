@@ -39,7 +39,7 @@ const AboutUsPage = async () => {
           {/* Our Mission and Values */}
           <div className="section" style={{ backgroundImage: 'url(/images/bg/hero-bg.webp)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
             <div className="container">
-              <div className="flex">
+              <div className="flex flex-wrap sm:flex-col-reverse lg:flex-row  justify-start sm:flex-col sm:justify-end">
                 <div className="lg:w-1/2">
                   <h2 className="text-3xl font-semibold text-gray-800 mb-4">
                     Our Mission

@@ -50,7 +50,7 @@ export const toolsdata = [{
     //     disc: "Determine risk tolerance and financial profile, customizing investments to suit your unique needs.",
     // },
     {
-        name: "Pay Premium Online",
+        name: "Pay Insurance Premium Online",
         link: "/tools/pay-premium-online",
         icon: "/images/features/pay-premium-online.svg",
         disc: "Make quick premium payments online, ensuring the continuous security of your financial well-being.",
@@ -64,42 +64,8 @@ export const toolsdata = [{
 
 ];
 
-export const servicesdata = [{
+export const servicesdata = [
 
-        title: "Stock Broking",
-        fullTitle: "Stock Broking",
-        slugUrl: "stock-broking",
-        metadescription: 'Stock Broking',
-        keyword: 'Stock Broking',
-        iconeImg: '/images/icons/stock-broking.svg',
-        imgContent: '/images/services/stock-broking.webp',
-        getInTouchButton: 'Open your Trading & Demat account now',
-        getInTouchDescription: "Experience reliable, fast, and affordable stock broking-designed for your financial growth.",
-        getInTouchButtonLink: '/contact-us',
-        shortDescription: "Stock broking is your gateway to wealth-building through equities. Whether you're a beginner or an experienced trader, having the right platform and guidance is key. At Invest100, we offer a reliable and secure way to invest in listed companies through stock exchanges, with full transparency and expert support.",
-        description: `<div>
-        <p class=boxShadow>Stock broking is a service that helps you buy and sell shares, bonds, and other listed securities through registered stock exchanges. A stock broker acts as an intermediary, providing you with a platform to trade, market insights, and order execution services, all within regulatory guidelines.</p>
-         
-        <div class='boxShadow1 rvscard'>
-        <h5>Types of Stock Broking Services</h5>
-        <ul class='rvlist'>
-        <li><b>Full-Service Broking:</b> Offers end-to-end investment support, research reports, advisory, and personalized assistance for clients who prefer guided investing.</li>
-        <li><b>Discount Broking:</b> Focuses on low-cost trading by providing a digital platform with minimal charges, ideal for self-directed investors and active traders.</li>
-        </ul>
-        </div>
- <div class='boxShadow1 rvscard'>
-        <h5>Key Features of Invest100's Stock Broking Partner App:</h5>
-        <ul class='rvlist'>
-        <li><b>User-Friendly Trading Platform:</b> Access live markets and execute trades smoothly on desktop or mobile with our intuitive interface.</li>
-        <li><b>Competitive Brokerage:</b> Trade at low costs with transparent pricing—no hidden charges, no surprises.</li>
-        <li><b>Expert Research & Insights:</b> Receive daily market updates, stock ideas, and technical analysis from certified market professionals.</li>
-        <li><b>Real-Time Order Execution:</b> Instant buy and sell orders with high-speed infrastructure for minimal delays.</li>
-        <li><b>Secure & Regulated Operations:</b> All trades and transactions are processed through exchanges and regulated entities for maximum security.</li>
-        <li><b>Portfolio Tracking:</b> Monitor your investments in real time and make informed decisions with data-rich dashboards.</li>
-        </ul>
-        </div>
-        </div>`,
-    },
     {
 
         title: "Mutual Funds",
@@ -200,32 +166,79 @@ export const servicesdata = [{
         getInTouchButtonLink: 'https://www.thesauda.com/',
         target: 'target="_"',
         shortDescription: "Unlisted stocks offer a unique way to invest in companies that are not yet traded on public stock exchanges. These early-stage opportunities can provide strong long-term growth potential, especially when accessed with the right information and guidance. Invest100 helps you explore this space securely and transparently.",
-        description: `<div>
+        description: `<div class="rvs-rows">
+        <div className="leftdata">
         <p class=boxShadow>Unlisted stocks offer a unique way to invest in companies that are not yet traded on public stock exchanges. These early-stage opportunities can provide strong long-term growth potential, especially when accessed with the right information and guidance. Invest100 helps you explore this space securely and transparently.</p>
         
         
         <div class='boxShadow1 rvscard'>
-        <h5>Types of Unlisted Stocks:</h5>
-        <ul class='rvlist'>
-        <li><b>Pre-IPO Shares:</b>Shares of companies preparing for a public offering. These can offer value if the IPO performs well.</li>
-        <li><b>Private Company Shares:</b>Equity of privately held businesses with strong growth prospects or established business models.</li>
-        <li><b>Employee Stock Options (ESOPs):</b>Shares sold by employees of private companies, often at a discount, offering early access to value.</li>
-        </ul>
+            <h5>Types of Unlisted Stocks:</h5>
+            <ul class='rvlist'>
+            <li><b>Pre-IPO Shares:</b>Shares of companies preparing for a public offering. These can offer value if the IPO performs well.</li>
+            <li><b>Private Company Shares:</b>Equity of privately held businesses with strong growth prospects or established business models.</li>
+            <li><b>Employee Stock Options (ESOPs):</b>Shares sold by employees of private companies, often at a discount, offering early access to value.</li>
+            </ul>
         </div>
- <div class='boxShadow1 rvscard'>
-        <h5>Key Features of SAUDA - iOS & Android</h5>
-        <ul class='rvlist'>
-        <li><b>Curated Investment Opportunities:</b>Access vetted and researched unlisted companies across industries and growth stages.</li>
-        <li><b>Transparent Pricing & Execution:</b>Get full visibility into pricing, documentation, and deal structure—no hidden terms.</li>
-        <li><b>Expert Due Diligence:</b>Invest100's research team evaluates business models, financials, and risks before listing opportunities.</li>
-        <li><b>Dedicated Support Team:</b>Personalized help throughout the transaction—from selection to settlement.</li>
-        <li><b>Secure Transactions:</b>All deals are processed through regulated intermediaries and documented professionally.</li>
-        <li><b>Portfolio Diversification:</b>Add a unique asset class to your investment mix for better diversification and potential upside.</li>
-        
-        </ul>
+        <div class='boxShadow1 rvscard'>
+            <h5>Key Features of SAUDA - iOS & Android</h5>
+            <ul class='rvlist'>
+            <li><b>Curated Investment Opportunities:</b>Access vetted and researched unlisted companies across industries and growth stages.</li>
+            <li><b>Transparent Pricing & Execution:</b>Get full visibility into pricing, documentation, and deal structure—no hidden terms.</li>
+            <li><b>Expert Due Diligence:</b>Invest100's research team evaluates business models, financials, and risks before listing opportunities.</li>
+            <li><b>Dedicated Support Team:</b>Personalized help throughout the transaction—from selection to settlement.</li>
+            <li><b>Secure Transactions:</b>All deals are processed through regulated intermediaries and documented professionally.</li>
+            <li><b>Portfolio Diversification:</b>Add a unique asset class to your investment mix for better diversification and potential upside.</li>
+            
+            </ul>
         </div>
 
         <p>Unlisted stocks open the door to early-stage growth and diversification beyond traditional markets. With the right approach, they can become a valuable part of your long-term portfolio. Let Invest100 guide you in making informed and secure investments in this exciting space.</p>
+        </div>
+        <div class="rightdata">
+            <div class="appalllinks">
+            <ul>
+                    <li><Link href="#!"><Image src="/images/napp-logo.webp" alt="" width={180} height={60} /></Link></li>
+                    <li><Link href="https://play.google.com/store/apps/details?id=com.invest100.nipungoel"><Image src="/images/android-btn.webp" alt="" width={180} height={60} /></Link></li>
+                    <li><Link href="#!"><Image src="/images/apple-btn.webp" alt="" width={180} height={60} /></Link></li>
+                </ul>
+            </div>
+        </div>
+        
+        </div>`,
+    },
+    {
+
+        title: "Stock Broking",
+        fullTitle: "Stock Broking",
+        slugUrl: "stock-broking",
+        metadescription: 'Stock Broking',
+        keyword: 'Stock Broking',
+        iconeImg: '/images/icons/stock-broking.svg',
+        imgContent: '/images/services/stock-broking.webp',
+        getInTouchButton: 'Open your Trading & Demat account now',
+        getInTouchDescription: "Experience reliable, fast, and affordable stock broking-designed for your financial growth.",
+        getInTouchButtonLink: '/contact-us',
+        shortDescription: "Stock broking is your gateway to wealth-building through equities. Whether you're a beginner or an experienced trader, having the right platform and guidance is key. At Invest100, we offer a reliable and secure way to invest in listed companies through stock exchanges, with full transparency and expert support.",
+        description: `<div>
+        <p class=boxShadow>Stock broking is a service that helps you buy and sell shares, bonds, and other listed securities through registered stock exchanges. A stock broker acts as an intermediary, providing you with a platform to trade, market insights, and order execution services, all within regulatory guidelines.</p>
+         
+        <div class='boxShadow1 rvscard'>
+        <h5>Types of Stock Broking Services</h5>
+        <ul class='rvlist'>
+        <li><b>Full-Service Broking:</b> Offers end-to-end investment support, research reports, advisory, and personalized assistance for clients who prefer guided investing.</li>
+        <li><b>Discount Broking:</b> Focuses on low-cost trading by providing a digital platform with minimal charges, ideal for self-directed investors and active traders.</li>
+        </ul>
+        </div>
+ <div class='boxShadow1 rvscard'>
+        <h5>Key Features of Invest100's Stock Broking Partner App:</h5>
+        <ul class='rvlist'>
+        <li><b>User-Friendly Trading Platform:</b> Access live markets and execute trades smoothly on desktop or mobile with our intuitive interface.</li>
+        <li><b>Competitive Brokerage:</b> Trade at low costs with transparent pricing—no hidden charges, no surprises.</li>
+        <li><b>Expert Research & Insights:</b> Receive daily market updates, stock ideas, and technical analysis from certified market professionals.</li>
+        <li><b>Real-Time Order Execution:</b> Instant buy and sell orders with high-speed infrastructure for minimal delays.</li>
+        <li><b>Secure & Regulated Operations:</b> All trades and transactions are processed through exchanges and regulated entities for maximum security.</li>
+        <li><b>Portfolio Tracking:</b> Monitor your investments in real time and make informed decisions with data-rich dashboards.</li>
+        </ul>
         </div>
         </div>`,
     },

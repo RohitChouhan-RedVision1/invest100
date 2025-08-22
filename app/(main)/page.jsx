@@ -35,7 +35,7 @@ export default async function Page({ children }) {
                 <TopFeatures />
                 {/* <FinancialTool />
                 <EmiCalculator /> */}
-                <Testimonials testimonials={testimonials}/>
+                <Testimonials sitedata={siteData} testimonials={testimonials}/>
                 {/* <OurHistory /> */}
                 {/* <OurPosts vidios={vidios} /> */}
                 <SubscribCard amclogos={amclogos} />
